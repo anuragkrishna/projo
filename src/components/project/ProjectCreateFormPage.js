@@ -28,8 +28,6 @@ class ProjectCreateFormPage extends React.Component {
 	}
 
   render() {
-        console.log("Passing project", this.props.project);
-
     return (
       <div>
       	  {

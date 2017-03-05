@@ -6,7 +6,7 @@ import ProjectAddCard from './ProjectAddCard';
 
 export default function ProjectList({projects, deleteProject}){
 
-	return (<div className="ui four cards">
+	return (<div className="ui four stackable cards">
 				<ProjectAddCard />
 				{projects.map((project) => <ProjectCard project={project} key={project.id} deleteProject={deleteProject}/>)}
 			</div>

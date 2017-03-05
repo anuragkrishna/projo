@@ -3,14 +3,14 @@
 import React from 'react';
 import classnames from 'classnames';
 
-const TextFieldGroup = ({name, value, label, error, type, onChange, checkUserExists}) => {
-
+const TextFieldGroup = ({name, value, label, error, type, onChange, isItemExists}) => {
+		
 	return (
 			<div className={classnames("field", {error:error})}>
 	            <label>{label}</label>
 	            <input
 	              value={value}
-	              onBlur={checkUserExists}
+	              onBlur={isItemExists}
 	              type={type}
 	              name={name}
 	              placeholder={label}

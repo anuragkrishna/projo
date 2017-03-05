@@ -6,6 +6,7 @@ import { browserHistory } from 'react-router';
 import status from './status'
 import map from 'lodash/map';
 import classnames from 'classnames';
+import validateProjectInput from '../../validations/project'; 
 
 /*
 	author: Anurag Krishna
@@ -13,15 +14,19 @@ import classnames from 'classnames';
 
 class ProjectCreateForm extends React.Component {
 
-  state ={
-    id: this.props.project ? this.props.project.id : '',
-    title:this.props.project ? this.props.project.title : '',
-    donor:this.props.project ? this.props.project.donor : '',
-    status:this.props.project ? this.props.project.status: '',
-    started_on:this.props.project ? this.props.project.started_on : '',
-    errors:{},
-    server_status:""
-  };
+  constructor(props){
+
+    super(props);
+    this.state ={
+      id: this.props.project ? this.props.project.id : '',
+      title:this.props.project ? this.props.project.title : '',
+      donor:this.props.project ? this.props.project.donor : '',
+      status:this.props.project ? this.props.project.status: '',
+      started_on:this.props.project ? this.props.project.started_on : '',
+      errors:{},
+      server_status:""
+    }
+  }
 
   componentWillReceiveProps = (nextProps) => {
     this.setState({
@@ -45,24 +50,24 @@ class ProjectCreateForm extends React.Component {
     }
   }
 
+    isDataValid = () =>{
+
+      const {errors, isValid} = validateProjectInput(this.state);
+      if(!isValid){
+        this.setState({errors:errors});
+      }
+      return isValid;
+   }
+
+
    handleSubmit = (e) => {
 
-    console.log(this.state.started_on);
-
     e.preventDefault();
-    //Validation
-    let errors = {};
-    if(this.state.title==='') errors.title = "Can't be empty";
-    if(this.state.donor==='') errors.donor = "Can't be empty";
-    if(this.state.status==='') errors.status = "Can't be empty";
-    if(this.state.started_on==='') errors.started_on = "Can't be empty";
-
-    this.setState({errors});
-
-    const isValid = Object.keys(errors).length === 0;
-    if(isValid){
+    
+    if(this.isDataValid()){
       const { id, title, donor, status, started_on } = this.state;
-      this.props.saveProject({id, title, donor, status, started_on });
+      this.props.saveProject({id, title, donor, status, started_on })
+                 .then() ;
      } 
   };
 
@@ -75,7 +80,7 @@ class ProjectCreateForm extends React.Component {
       );
 
     const form = (
-        <form className="ui form" onSubmit={this.handleSubmit}>
+        <form className={classnames("ui form",{error:errors})} onSubmit={this.handleSubmit}>
           <h1>{this.state.id ? "Edit Project" : "Add New Project"}</h1>
 
             {!!errors.global && <div className="ui negative message"><p>{errors.global}</p></div>}

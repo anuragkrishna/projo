@@ -5,10 +5,13 @@ import {Link} from 'react-router';
 
 
 export default function NoteCard({note, deleteNote}){
-	console.log(note);
+
+	let date = new Date(note.created_on);
+
 	return (<div className="ui card">			
 			    <div className="content">
 			        <div className="header">{note.title}</div>
+			        <div className="meta">{date.toLocaleDateString("en-US")} </div>
 			        <hr/>
 			        <div>
 			        	<span className="description">{note.content}</span>

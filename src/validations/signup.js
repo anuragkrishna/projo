@@ -22,7 +22,7 @@ export default function validateSignupInput(data){
 
 
   if(Validator.isEmpty(data.last_name)){
-    errors.username = "This field is isRequired.";
+    errors.username = "This field is Required.";
   }
 
   if(!Validator.isAlpha(data.last_name)){
@@ -36,7 +36,7 @@ export default function validateSignupInput(data){
 
 
   if(Validator.isEmpty(data.username)){
-    errors.username = "This field is isRequired.";
+    errors.username = "This field is Required.";
   }
 
   if(!Validator.isAlpha(data.username)){
@@ -59,11 +59,11 @@ export default function validateSignupInput(data){
 
 
   if(Validator.isEmpty(data.password)){
-    errors.password = "This field is isRequired.";
+    errors.password = "This field is Required.";
   }
 
   if(Validator.isEmpty(data.passwordConfirmation)){
-    errors.passwordConfirmation = "This field is isRequired.";
+    errors.passwordConfirmation = "This field is Required.";
   }
 
   if(!Validator.equals(data.password, data.passwordConfirmation)){
@@ -74,4 +74,4 @@ export default function validateSignupInput(data){
     errors,
     isValid: isEmpty(errors)
   };
-};
+}

@@ -4,6 +4,7 @@ import React from 'react';
 import TextFieldGroup from '../commons/TextFieldGroup';
 import { browserHistory } from 'react-router';
 import classnames from 'classnames';
+import validateNoteInput from '../../validations/note'; 
 
 /*
 	author: Anurag Krishna
@@ -43,18 +44,21 @@ class NoteCreateForm extends React.Component {
     }
   }
 
+    isDataValid = () =>{
+
+      const {errors, isValid} = validateNoteInput(this.state);
+      if(!isValid){
+        this.setState({errors:errors});
+      }
+      return isValid;
+   }
+
+
    handleSubmit = (e)=>{
 
     e.preventDefault();
-    //Validation
-    let errors = {};
-    if(this.state.title==='') errors.title = "Can't be empty";
-    if(this.state.content==='') errors.content = "Can't be empty";
-
-    this.setState({errors});
-
-    const isValid = Object.keys(errors).length === 0;
-    if(isValid){
+  
+    if(this.isDataValid()){
       const { id, title, content } = this.state;
       this.props.saveNote({id, title, content });
      } 
@@ -65,7 +69,7 @@ class NoteCreateForm extends React.Component {
     const errors = this.state.errors;
 
     const form = (
-        <form className="ui form" onSubmit={this.handleSubmit}>
+        <form className={classnames("ui form",{error:errors})} onSubmit={this.handleSubmit}>
           <h1>{this.state.id ? "Edit Note" : "Add New Note"}</h1>
 
             {!!errors.global && <div className="ui negative message"><p>{errors.global}</p></div>}
@@ -81,12 +85,13 @@ class NoteCreateForm extends React.Component {
 
               <div className={classnames("field", {error:errors.content})}>
                 <label>Content</label>
-                <textarea name="content" value={this.state.content} onChange={this.onChange} rows="8"></textarea>
+                <textarea name="content" value={this.state.content} onChange={this.onChange} rows="10"></textarea>
+                {errors.content && <span className="ui error message">{errors.content}</span>}
               </div>  
 
             <div className="field">
-              <button className="ui primary button">Save</button>
-              <button className="ui secondary button" onClick={()=>browserHistory.push('/notes')}>Cancel</button>
+              <button className="ui right floated primary button">Save</button>
+              <button className="ui right floated secondary button" onClick={()=>browserHistory.push('/notes')}>Cancel</button>
             </div>
       </form>
       );

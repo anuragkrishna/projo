@@ -52,6 +52,7 @@ export function updateProject(data){
 	 };
 } 
 
+
 export function projectUpdated(project){
 	return {
 		type: P_PROJECT_UPDATED,
