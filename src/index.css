@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../public/img/background.jpg");
+  font-family: 'Georgia', 'serif';
+  background-size: cover;
+}
+
+#p_header {
+	background-color:#ffffff;
+}
