@@ -2,6 +2,10 @@
 
 import React from 'react';
 import TextFieldGroup from '../commons/TextFieldGroup';
+import { browserHistory } from 'react-router';
+import status from './status'
+import map from 'lodash/map';
+import classnames from 'classnames';
 
 /*
 	author: Anurag Krishna
@@ -43,6 +47,8 @@ class ProjectCreateForm extends React.Component {
 
    handleSubmit = (e) => {
 
+    console.log(this.state.started_on);
+
     e.preventDefault();
     //Validation
     let errors = {};
@@ -64,9 +70,13 @@ class ProjectCreateForm extends React.Component {
 
     const errors = this.state.errors;
 
+     const statusOptions = map(status, (value,key) =>
+        <option key={key} value={value}>{key}</option>
+      );
+
     const form = (
         <form className="ui form" onSubmit={this.handleSubmit}>
-          <h1>Add new Project</h1>
+          <h1>{this.state.id ? "Edit Project" : "Add New Project"}</h1>
 
             {!!errors.global && <div className="ui negative message"><p>{errors.global}</p></div>}
 
@@ -88,27 +98,32 @@ class ProjectCreateForm extends React.Component {
               error={errors.donor}
               />
 
-            <TextFieldGroup
-              label="Status"
-              value={this.state.status}
-              type="text"
-              name="status"
-              onChange={this.onChange}
-              error={errors.status}
-              />
+              <div className={classnames("field", {error:errors.status})}>
+               <label>Status</label>
+                <select
+                  value={this.state.status}
+                  type="text"
+                  name="status"
+                  className="form-control"
+                  onChange={this.onChange}
+                   >
+                  <option value="" disabled>Status</option>
+                  {statusOptions}
+                </select>
+              </div>  
 
             <TextFieldGroup
               label="Started On"
               value={this.state.started_on}
-              type="text"
+              type="date"
               name="started_on"
               onChange={this.onChange}
               error={errors.started_on}
               />  
 
             <div className="field">
-              <button className="ui primary button">Save</button>
-              <button className="ui secondary button" onClick={()=>this.context.router.push(-1)}>Cancel</button>
+              <button className="ui right floated primary button">Save</button>
+              <button className="ui right floated secondary button" onClick={()=>browserHistory.push('/projects')}>Cancel</button>
             </div>
       </form>
       );
@@ -121,7 +136,7 @@ class ProjectCreateForm extends React.Component {
     }
 }  
 
-//For Redirect using context
+
 ProjectCreateForm.contextTypes ={
   router: React.PropTypes.object.isRequired
 }

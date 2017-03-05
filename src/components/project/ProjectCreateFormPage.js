@@ -26,7 +26,10 @@ class ProjectCreateFormPage extends React.Component {
       		  .then(()=>{this.setState({redirect_to_projects:true})});
  		}	
 	}
+
   render() {
+        console.log("Passing project", this.props.project);
+
     return (
       <div>
       	  {

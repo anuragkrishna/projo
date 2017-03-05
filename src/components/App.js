@@ -13,9 +13,7 @@ class App extends React.Component {
     		<div className="App">
 		      <div className="ui container">
 		        <NavigationBar />
-		        <div className="main">
-					{this.props.children}
-				</div>	
+				{this.props.children}
 		      </div>
 		    </div>  
     );

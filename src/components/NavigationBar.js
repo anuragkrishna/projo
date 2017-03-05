@@ -4,6 +4,8 @@ import React from 'react';
 import '../index.css'; 
 
 import {Link} from 'react-router';
+import {NavLink} from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import {logoutRequest} from '../actions/authActions';
 
@@ -30,26 +32,26 @@ class NavigationBar extends React.Component{
 
 		const guestLinks = (
 			<div className="right menu">
-					<Link className="ui item" to="signup">
+					<NavLink className="ui item" to="signup">
 				      Signup
-				    </Link>
-				    <Link className="ui item" to="login">
+				    </NavLink>
+				    <NavLink className="ui item" to="login">
 				      Login
-				   	</Link>	
+				   	</NavLink>	
 			</div>	   	
 			);
 	return(
 			<div className="ui secondary pointing menu">
-				  <Link className="item" activeClassName="active" to="/">
-				    Home
-				  </Link>
-				  <Link className="item" activeClassName="active" to="notes">
+				  <NavLink className="item" activeClassName="active" to="/">
+				    Project
+				  </NavLink>
+				  <NavLink className="item" activeClassName="active" to="notes">
 				    Notes
-				  </Link>
-				  <Link className="item" activeClassName="active" to="reports">
+				  </NavLink>
+				  <NavLink className="item" activeClassName="active" to="reports">
 				    Reports
-				  </Link>
-				  		{isAuthenticated ? userLinks : guestLinks}
+				  </NavLink>
+				  		{userLinks}
 			</div>
 		);
 	}

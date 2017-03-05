@@ -5,12 +5,15 @@ import {Link} from 'react-router';
 
 
 export default function ProjectCard({project, deleteProject}){
+
+	var date = new Date(project.started_on);
+
 	return (<div className="ui card">			
 			    <div className="content">
 			        <div className="header">{project.title}</div>
 			        <hr/>
 			        <div>
-			        	<span>{project.started_on} </span>
+			        	<span>{date.toLocaleDateString("en-US")} </span>
 			        </div>	
 			        <div>
 			        	<span>{project.status} </span>

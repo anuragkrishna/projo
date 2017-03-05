@@ -3,6 +3,7 @@
 import React from 'react';
 import TextFieldGroup from '../commons/TextFieldGroup';
 import validateLoginInput from '../../validations/login'; 
+import { browserHistory } from 'react-router';
 
 
 class LoginForm extends React.Component {
