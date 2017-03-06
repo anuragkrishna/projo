@@ -35,5 +35,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://projek.herokuapp.com/"
+  "proxy": "https://projek-api.herokuapp.com/"
 }
