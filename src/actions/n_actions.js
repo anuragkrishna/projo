@@ -5,9 +5,8 @@ import {P_SET_NOTES, P_SAVE_NOTE, P_NOTE_UPDATED, P_NOTE_FETCHED, P_NOTE_DELETED
 import axios from 'axios';
 
 export function fetchAllNotes(){
-	console.log("Fetching Notes");
 	return (dispatch) =>{
-		return axios.get('/api/notes')
+		return axios.get('https://projek-api.herokuapp.com/api/notes')
 			.then(response=>response.data)
 			.then((notes)=>dispatch(setNotes(notes)));
 	};
@@ -21,9 +20,8 @@ export function setNotes(notes){
 }
 
 export function saveNote(data){
-	console.log("saving note")
 	return (dispatch) => {
-		return axios.post('/api/note', data)
+		return axios.post('https://projek-api.herokuapp.com/api/note', data)
 				.then(handleResponse)
 			  	.then((note)=>dispatch(addNote(note)));
 	 };
@@ -49,7 +47,7 @@ export function addNote(note){
 
 export function updateNote(data){
 	return (dispatch) => {
-		return axios.put(`/api/note/${data.id}`, data)
+		return axios.put(`https://projek-api.herokuapp.com/api/note/${data.id}`, data)
 				.then(handleResponse)
 			  	.then((note)=>dispatch(noteUpdated(note)));
 	 };
@@ -64,7 +62,7 @@ export function noteUpdated(note){
 
 export function fetchNote(id) {
   return dispatch => {
-    return axios.get(`/api/note/${id}`)
+    return axios.get(`https://projek-api.herokuapp.com/api/note/${id}`)
     	.then(handleResponse)
     	.then(data => dispatch(noteFetched(data)));
   };
@@ -80,7 +78,7 @@ export function noteFetched(note) {
 
 export function deleteNote(id){
 	return (dispatch) => {
-		return axios.delete(`/api/note/${id}`)
+		return axios.delete(`https://projek-api.herokuapp.com/api/note/${id}`)
 				.then(handleResponse)
 			  	.then((note)=>dispatch(noteDeleted(note)));
 	 };

@@ -21,7 +21,7 @@ export default (
 		<Route path="login" component={LoginFormPage}/>
 
 		<Route component={requireAuth(App)} >
-			<IndexRedirect to="/projects"/>	
+			<IndexRedirect to="projects"/>	
 			<Route path="projects" component={requireAuth(ProjectListPage)}/>
 			<Route path="projects/create" component={requireAuth(ProjectCreateFormPage)}/>
 			<Route path="project/:id" component={requireAuth(ProjectCreateFormPage)}/>

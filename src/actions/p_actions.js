@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export function fetchAllProjects(){
 	return (dispatch) =>{
-		return axios.get('/api/projects')
+		return axios.get('https://projek-api.herokuapp.com/api/projects')
 			.then(response=>response.data)
 			.then((projects)=>dispatch(setProjects(projects)));
 	};
@@ -20,7 +20,7 @@ export function setProjects(projects){
 
 export function saveProject(data){
 	return (dispatch) => {
-		return axios.post('/api/project', data)
+		return axios.post('https://projek-api.herokuapp.com/api/project', data)
 				.then(handleResponse)
 			  	.then((project)=>dispatch(addProject(project)));
 	 };
@@ -46,7 +46,7 @@ export function addProject(project){
 
 export function updateProject(data){
 	return (dispatch) => {
-		return axios.put(`/api/project/${data.id}`, data)
+		return axios.put(`https://projek-api.herokuapp.com/api/project/${data.id}`, data)
 				.then(handleResponse)
 			  	.then((project)=>dispatch(projectUpdated(project)));
 	 };
@@ -62,7 +62,7 @@ export function projectUpdated(project){
 
 export function fetchProject(id) {
   return dispatch => {
-    return axios.get(`/api/project/${id}`)
+    return axios.get(`https://projek-api.herokuapp.com/api/project/${id}`)
     	.then(handleResponse)
     	.then(data => dispatch(projectFetched(data)));
   };
@@ -79,7 +79,7 @@ export function projectFetched(project) {
 export function deleteProject(id){
 	console.log("deleteProject")
 	return (dispatch) => {
-		return axios.delete(`/api/project/${id}`)
+		return axios.delete(`https://projek-api.herokuapp.com/api/project/${id}`)
 				.then(handleResponse)
 			  	.then((project)=>dispatch(projectDeleted(project)));
 	 };

@@ -4,14 +4,13 @@ import React from 'react';
 import '../index.css'; 
 
 import {Link} from 'react-router';
-import {NavLink} from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import {logoutRequest} from '../actions/authActions';
 import logo from '../../public/img/small-logo.jpg';
 import './App.css';
 
-class NavigationBar extends React.Component{
+class igationBar extends React.Component{
 
 	constructor(props) {
 		super(props);
@@ -40,15 +39,15 @@ class NavigationBar extends React.Component{
 		        </div> 
 		        <div id="navbar" className="navbar-collapse collapse">
 		            <ul className="nav navbar-nav">
-		                <li><NavLink to="projects">Projects</NavLink></li>
-		                <li><NavLink to="notes">Notes</NavLink></li>
-		                <li><NavLink to="reports">Reports</NavLink></li>
+		                <li><Link to="projects">Projects</Link></li>
+		                <li><Link to="notes">Notes</Link></li>
+		                <li><Link to="reports">Reports</Link></li>
 		            </ul> 
 		            <ul className="nav navbar-nav navbar-right">
-		            	<li><NavLink to="/projects/create">Add Project</NavLink></li>
-		            	<li><NavLink to="/notes/create">Add Note</NavLink></li>
+		            	<li><Link to="/projects/create">Add Project</Link></li>
+		            	<li><Link to="/notes/create">Add Note</Link></li>
 		            	<li>{this.props.auth.user.username}</li>
-		            	<li><NavLink to="login" onClick={this.logout}>logout</NavLink></li>
+		            	<li><Link to="login" onClick={this.logout}>logout</Link></li>
 		          </ul> 
 		        </div>   
 		       </div>  
@@ -59,12 +58,12 @@ class NavigationBar extends React.Component{
 }
 
 
-NavigationBar.proptypes ={
+igationBar.proptypes ={
 	auth: React.PropTypes.object.isRequired,
 	logoutRequest:React.PropTypes.func.isRequired
 }
 
-NavigationBar.contextTypes = {
+igationBar.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
 
@@ -76,4 +75,4 @@ function mapStateToProps(state){
 	};
 }
 
-export default connect(mapStateToProps, {logoutRequest})(NavigationBar);
+export default connect(mapStateToProps, {logoutRequest})(igationBar);
