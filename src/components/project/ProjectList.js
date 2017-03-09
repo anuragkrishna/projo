@@ -10,7 +10,7 @@ export default function ProjectList({projects, deleteProject}){
 	return (
 			<div id="artifactlist" className="container">
     			<div className="jumbotron">
-    				<i className="fa fa-spinner fa-spin" aria-hidden="true"></i>
+    				
     				{projects.length===0 ? boilerPlate : projects.map((project) => <ProjectCard project={project} key={project.id} deleteProject={deleteProject}/>)}
     			</div>
     		</div>
