@@ -16,17 +16,19 @@ export function loginRequest(data) {
   return dispatch => {
     return axios.post('/api/auth', data).then(res => {
       const token = res.data.token;
-      window.localStorage.setItem('jwtToken', token);
-      setAuthorizationToken(token);
-      dispatch(setCurrentUser(jwt_decode(token)));
-    });
-  };
+      if(window){
+        window.localStorage.setItem('jwtToken', token);
+        setAuthorizationToken(token);
+        dispatch(setCurrentUser(jwt_decode(token)));
+      }});
+    };
 }
 
 export function logoutRequest() {
   return dispatch => {
-    window.localStorage.removeItem('jwtToken');
-    setAuthorizationToken(false);
-    dispatch(setCurrentUser({}));
-  };
+    if(window){
+      window.localStorage.removeItem('jwtToken');
+      setAuthorizationToken(false);
+      dispatch(setCurrentUser({}));
+  }};
 }
