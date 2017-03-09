@@ -2,7 +2,6 @@
 
 import React from 'react';
 import NoteCard from './NoteCard';
-import NoteAddCard from './NoteAddCard';
 import './style.css';
 
 export default function NoteList({notes, deleteNote}){

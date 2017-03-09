@@ -74,6 +74,12 @@ export function projectFetched(project) {
 		project
 	};
 }
+
+export function isProjectExists(identifier) {
+	return dispatch => {
+		return axios.get(`https://projek-api.herokuapp.com/api/project/${identifier}`);
+	};
+}
  
 
 export function deleteProject(id){

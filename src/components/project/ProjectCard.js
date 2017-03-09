@@ -4,6 +4,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './style.css';
 import {Modal, Button} from 'react-bootstrap';
+import ConfirmModal from '../commons/ConfirmModal';
 
 class ProjectCard extends React.Component{
 
@@ -12,6 +13,8 @@ class ProjectCard extends React.Component{
 		this.state = {
 			showConfirmModal:false
 		};
+		this.closeConfirmModal=this.closeConfirmModal.bind(this);
+		this.closeAndRemoveConfirmModal=this.closeAndRemoveConfirmModal.bind(this);
 	}
 
 	closeConfirmModal = (e) => {
@@ -64,15 +67,8 @@ class ProjectCard extends React.Component{
 			        </div>    
 				</div>	
 
-	        	<Modal show={this.state.showConfirmModal} onHide={this.closeConfirmModal}>
-		          <Modal.Header closeButton>
-		            <Modal.Title>Are you sure ?</Modal.Title>
-		          </Modal.Header>
-		          <Modal.Footer>
-		            <button className="btn btn-primary btn-spacing" onClick={this.closeAndRemoveConfirmModal}>Yes</button>	          
-		            <button className="btn btn-secondary btn-spacing" onClick={this.closeConfirmModal}>No</button>
-		          </Modal.Footer>
-	        	</Modal>	
+				<ConfirmModal showConfirmModal={this.state.showConfirmModal} closeConfirmModal={this.closeConfirmModal} closeAndRemoveConfirmModal={this.closeAndRemoveConfirmModal} />
+	
 			</div>
 		);
 	}

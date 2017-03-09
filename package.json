@@ -14,6 +14,7 @@
     "classnames": "^2.2.5",
     "jwt-decode": "^2.1.0",
     "lodash": "^4.17.4",
+    "moment": "^2.17.1",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.8",
     "react-bootstrap-modal": "^3.0.1",

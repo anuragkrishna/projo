@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { saveProject, updateProject,fetchProject } from '../../actions/p_actions';
+import { saveProject, updateProject,fetchProject, isProjectExists} from '../../actions/p_actions';
 import ProjectCreateForm from './ProjectCreateForm';
 
 class ProjectCreateFormPage extends React.Component {
@@ -32,7 +32,7 @@ class ProjectCreateFormPage extends React.Component {
       <div>
       	  {
       	  	this.state.redirect_to_projects ? this.context.router.push('/projects') :	
-          		<ProjectCreateForm project={this.props.project} saveProject={this.saveProject}/> 
+          		<ProjectCreateForm project={this.props.project} saveProject={this.saveProject} isProjectExists={isProjectExists}/> 
           }
 
       </div>
@@ -53,4 +53,4 @@ ProjectCreateFormPage.contextTypes ={
 }
 
 
-export default connect(mapStateToProps, { saveProject, updateProject,fetchProject })(ProjectCreateFormPage);
+export default connect(mapStateToProps, { saveProject, updateProject,fetchProject, isProjectExists })(ProjectCreateFormPage);

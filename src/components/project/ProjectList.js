@@ -2,7 +2,6 @@
 
 import React from 'react';
 import ProjectCard from './ProjectCard';
-import ProjectAddCard from './ProjectAddCard';
 import './style.css';
 
 export default function ProjectList({projects, deleteProject}){

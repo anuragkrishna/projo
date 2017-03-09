@@ -16,7 +16,7 @@ const TextFieldGroup = ({name, value, label, error, type, onChange, isItemExists
 	              placeholder={label}
 	              onChange={onChange}
 	              />
-	              {error && <div className="alert alert-warning" role="alert">
+	              {error && <div className="alert alert-danger" role="alert">
                        <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                        <span className="sr-only alert alert-danger">Error:</span>
                           {error}

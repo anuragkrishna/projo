@@ -32,15 +32,19 @@ class NoteCreateForm extends React.Component {
   }
 
     onChange = (e) =>{
-    if(!!this.state.errors[e.target.name]){
-      let errors = this.state.errors[e.target.name];
-      this.setState({
-        [e.target.name]:e.target.value,
-        errors
-    });
-    }else{
-        this.setState({ [e.target.name]: e.target.value });
-    }
+      const name = e.target.name;
+      let errors = this.state.errors;
+      errors[name] = "";
+      this.setState({ errors});
+      if(!!this.state.errors[e.target.name]){
+        let errors = this.state.errors[e.target.name];
+        this.setState({
+          [e.target.name]:e.target.value,
+          errors
+      });
+      }else{
+          this.setState({ [e.target.name]: e.target.value });
+      }
   }
 
     isDataValid = () =>{
@@ -87,7 +91,14 @@ class NoteCreateForm extends React.Component {
                             <div className={classnames("form-group", {error:errors.content})}>
                               <label>Content</label>
                               <textarea className="form-control" name="content" value={this.state.content} onChange={this.onChange} rows="10"></textarea>
-                              {errors.content && <span className="ui error message">{errors.content}</span>}
+                              
+                              {errors.content && <div className="alert alert-danger" role="alert">
+                                <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span className="sr-only alert alert-danger">Error:</span>
+                                  {errors.content}
+                              </div>
+                            }
+
                             </div>  
 
                           <div className="field">

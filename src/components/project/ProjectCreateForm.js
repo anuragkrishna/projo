@@ -8,6 +8,8 @@ import map from 'lodash/map';
 import classnames from 'classnames';
 import validateProjectInput from '../../validations/project'; 
 import './style.css';
+import moment from 'moment';
+
 /*
 	author: Anurag Krishna
 */
@@ -47,6 +49,26 @@ class ProjectCreateForm extends React.Component {
     });
     }else{
         this.setState({ [e.target.name]: e.target.value });
+    }
+  }
+
+  checkProjectExists(e){
+    const val = e.target.value;
+    let invalid;
+    if(val!==''){
+      this.props.isProjectExists(val)
+      .then(res => {
+          let errors = this.state.errors;
+          if(res.data.project) {
+            errors.title = 'There is a user with such title';
+            invalid=true; 
+          }
+          else{
+            errors[name] = ''; 
+            invalid=false;
+          }
+         this.setState({errors: errors, invalid:invalid});
+      });
     }
   }
 
@@ -121,7 +143,7 @@ class ProjectCreateForm extends React.Component {
 
                       <TextFieldGroup
                         label="Started On"
-                        value={this.state.started_on}
+                        value={moment(this.state.started_on).format("YYYY-MM-DD")}
                         type="date"
                         name="started_on"
                         onChange={this.onChange}

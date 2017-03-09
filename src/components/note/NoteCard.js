@@ -4,6 +4,8 @@ import React from 'react';
 import {Link} from 'react-router';
 import './style.css';
 import {Modal, Button} from 'react-bootstrap';
+import ConfirmModal from '../commons/ConfirmModal';
+import NoteViewModal from './NoteViewModal';
 
 
 export default class NoteCard extends React.Component{
@@ -49,34 +51,16 @@ export default class NoteCard extends React.Component{
 	return (
 			<div>
 
-			<Modal show={this.state.showViewModal} onHide={this.closeViewModal}>
-	          <Modal.Header closeButton>
-	            <Modal.Title>{this.props.note.title}</Modal.Title>
-	          </Modal.Header>
-	          <Modal.Body>
-	            <div>{this.props.note.content}</div>
-	          </Modal.Body>
-	          <Modal.Footer>
-	          	<Link  id="edit" to={`/note/${this.props.note.id}`}><button className="btn btn-primary btn-spacing">Edit</button></Link>
-	            <button className="btn btn-primary btn-spacing" onClick={this.closeViewModal}>Close</button>
-	          </Modal.Footer>
-        	</Modal>
 
-        	<Modal show={this.state.showConfirmModal} onHide={this.closeConfirmModal}>
-	          <Modal.Header closeButton>
-	            <Modal.Title>Are you sure ?</Modal.Title>
-	          </Modal.Header>
-	          <Modal.Footer>
-	            <button className="btn btn-primary btn-spacing" onClick={this.closeAndRemoveConfirmModal}>Yes</button>	          
-	            <button className="btn btn-secondary btn-spacing" onClick={this.closeConfirmModal}>No</button>
-	          </Modal.Footer>
-        	</Modal>	
+			<NoteViewModal showViewModal={this.state.showViewModal} closeViewModal={this.closeViewModal} note={this.props.note} />	
+
+			<ConfirmModal showConfirmModal={this.state.showConfirmModal} closeConfirmModal={this.closeConfirmModal} closeAndRemoveConfirmModal={this.closeAndRemoveConfirmModal} />	
 
 			<div className="col-xs-12 col-sm-6 col-md-3 col-lg-2">
 				<div className="card">
 					<div className="list-group">
 						<a href="" onClick={this.openViewModal}>
-							<div className="card-content list-group-item">
+							<div className="note-card-content list-group-item">
 								<h4><u>{this.props.note.title}</u></h4>
 								<small>{date.toLocaleDateString("en-US")} </small>
 							</div>
