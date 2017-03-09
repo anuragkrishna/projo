@@ -20,7 +20,7 @@ const store = createStore(rootReducer, composeWithDevTools(
 		)
 );
 
- if(localStorage.jwtToken){
+ if(window.localStorage.jwtToken){
  	setAuthorizationToken(window.localStorage.jwtToken);
  	store.dispatch(setCurrentUser(jwt_decode(window.localStorage.jwtToken)));
  }
