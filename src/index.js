@@ -20,11 +20,11 @@ const store = createStore(rootReducer, composeWithDevTools(
 		)
 );
 
-if(window){
- if(window.localStorage.jwtToken){
- 	setAuthorizationToken(window.localStorage.jwtToken);
- 	store.dispatch(setCurrentUser(jwt_decode(window.localStorage.jwtToken)));
- }
+if (typeof window !== 'undefined') 
+	 if(window.localStorage.jwtToken){
+	 	setAuthorizationToken(window.localStorage.jwtToken);
+	 	store.dispatch(setCurrentUser(jwt_decode(window.localStorage.jwtToken)));
+	 }
 } 
 
 ReactDOM.render(
