@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router';
 import './style.css';
 import {Modal, Button} from 'react-bootstrap';
 
@@ -57,7 +57,7 @@ export default class NoteCard extends React.Component{
 	            <div>{this.props.note.content}</div>
 	          </Modal.Body>
 	          <Modal.Footer>
-	          	<NavLink  id="edit" to={`/note/${this.props.note.id}`}><button className="btn btn-primary btn-spacing">Edit</button></NavLink>
+	          	<Link  id="edit" to={`/note/${this.props.note.id}`}><button className="btn btn-primary btn-spacing">Edit</button></Link>
 	            <button className="btn btn-primary btn-spacing" onClick={this.closeViewModal}>Close</button>
 	          </Modal.Footer>
         	</Modal>

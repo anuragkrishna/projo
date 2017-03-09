@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import TextFieldGroup from '../commons/TextFieldGroup';
 import validateLoginInput from '../../validations/login'; 
 import { browserHistory } from 'react-router';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router';
 import './login.css';
 import logo from '../../../public/img/large-logo.jpg'
 
@@ -96,7 +96,7 @@ class LoginForm extends React.Component {
 
                     <div className="form-group">
                       <button className={classnames("btn btn-primary btn-lg",{disabled:this.state.isLoading || this.state.invalid})} type="submit"><strong>Login</strong></button>
-                      <span className="h4"> No account yet ? <NavLink to="signup"><strong><u>Signup</u></strong></NavLink></span>
+                      <span className="h4"> No account yet ? <Link to="signup"><strong><u>Signup</u></strong></Link></span>
                     </div>    
                   </form> 
                 </div>

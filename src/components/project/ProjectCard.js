@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './style.css';
 import {Modal, Button} from 'react-bootstrap';
 
@@ -59,7 +59,7 @@ class ProjectCard extends React.Component{
 							</span>
 							</div>	
 						</div>
-			            <NavLink className="card-action list-group-item" id="edit" to={`/project/${project.id}`}><span className="glyphicon glyphicon-pencil"></span> Edit</NavLink>
+			            <Link className="card-action list-group-item" id="edit" to={`/project/${project.id}`}><span className="glyphicon glyphicon-pencil"></span> Edit</Link>
 			            <a className="card-action list-group-item" id="remove" href="" onClick={this.openConfirmModal}><span className="glyphicon glyphicon-remove"></span> Remove</a>
 			        </div>    
 				</div>	
