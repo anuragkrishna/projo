@@ -11,13 +11,9 @@ class LoginFormPage extends React.Component {
 	
 	render(){
 
-			const ele = <div className="ui grid">
-		  					<div className="four wide column"></div>
-		  					<div className="eight wide column">
-								<LoginForm loginRequest={this.props.loginRequest}/>	
-							</div>	
-							<div className="four wide column"></div>
-						</div>	
+			const ele = <div>
+							<LoginForm loginRequest={this.props.loginRequest}/>	
+						</div>;	
 			return (
 				<div>
 					{this.props.isAuthenticated ? browserHistory.push("/") : ele}

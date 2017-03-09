@@ -7,7 +7,7 @@ import status from './status'
 import map from 'lodash/map';
 import classnames from 'classnames';
 import validateProjectInput from '../../validations/project'; 
-
+import './style.css';
 /*
 	author: Anurag Krishna
 */
@@ -80,57 +80,61 @@ class ProjectCreateForm extends React.Component {
       );
 
     const form = (
-        <form className={classnames("ui form",{error:errors})} onSubmit={this.handleSubmit}>
-          <h1>{this.state.id ? "Edit Project" : "Add New Project"}</h1>
+              <div className="container col-xs-12 col-md-6 col-md-offset-3">
+                <div className="jumbotron">
+                  <form className={classnames({error:errors})} onSubmit={this.handleSubmit}>
+                    <h3>{this.state.id ? "Edit Project" : "Add New Project"}</h3>
 
-            {!!errors.global && <div className="ui negative message"><p>{errors.global}</p></div>}
+                      {!!errors.global && <div className="ui negative message"><p>{errors.global}</p></div>}
 
-            <TextFieldGroup
-              label="Title"
-              value={this.state.title}
-              type="text"
-              name="title"
-              onChange={this.onChange}
-              error={errors.title}
-              />
+                      <TextFieldGroup
+                        label="Title"
+                        value={this.state.title}
+                        type="text"
+                        name="title"
+                        onChange={this.onChange}
+                        error={errors.title}
+                        />
 
-            <TextFieldGroup
-              label="Donor"
-              value={this.state.donor}
-              type="text"
-              name="donor"
-              onChange={this.onChange}
-              error={errors.donor}
-              />
+                      <TextFieldGroup
+                        label="Donor"
+                        value={this.state.donor}
+                        type="text"
+                        name="donor"
+                        onChange={this.onChange}
+                        error={errors.donor}
+                        />
 
-              <div className={classnames("field", {error:errors.status})}>
-               <label>Status</label>
-                <select
-                  value={this.state.status}
-                  type="text"
-                  name="status"
-                  className="form-control"
-                  onChange={this.onChange}
-                   >
-                  <option value="" disabled>Status</option>
-                  {statusOptions}
-                </select>
-              </div>  
+                          <div className={classnames("list-group", {error:errors.status})}>
+                            <select
+                              className="list-group-item"
+                              value={this.state.status}
+                              type="text"
+                              name="status"
+                              className="form-control"
+                              onChange={this.onChange}
+                               >
+                              <option value="" disabled>Status</option>
+                              {statusOptions}
+                            </select>
+                          </div>
 
-            <TextFieldGroup
-              label="Started On"
-              value={this.state.started_on}
-              type="date"
-              name="started_on"
-              onChange={this.onChange}
-              error={errors.started_on}
-              />  
+                      <TextFieldGroup
+                        label="Started On"
+                        value={this.state.started_on}
+                        type="date"
+                        name="started_on"
+                        onChange={this.onChange}
+                        error={errors.started_on}
+                        />  
 
-            <div className="field">
-              <button className="ui right floated primary button">Save</button>
-              <button className="ui right floated secondary button" onClick={()=>browserHistory.push('/projects')}>Cancel</button>
-            </div>
-      </form>
+                      <div className="field">
+                        <button className="btn btn-primary">Save</button>
+                        <button className="btn btn-secondary" onClick={()=>browserHistory.push('/projects')}>Cancel</button>
+                      </div>
+                </form>
+              </div>
+            </div>    
       );
 
     return (

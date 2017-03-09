@@ -1,10 +1,13 @@
 /*jshint esversion: 6 */
 
 import React from 'react';
+import classnames from 'classnames';
 import TextFieldGroup from '../commons/TextFieldGroup';
 import validateLoginInput from '../../validations/login'; 
 import { browserHistory } from 'react-router';
-
+import {NavLink} from 'react-router-dom';
+import './login.css';
+import logo from '../../../public/img/large-logo.jpg'
 
 class LoginForm extends React.Component {
 
@@ -46,6 +49,7 @@ class LoginForm extends React.Component {
   }
 
   onChange(e) {
+    this.setState({ errors: {}});
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -54,38 +58,51 @@ class LoginForm extends React.Component {
 
     const errors = this.state.errors;
 
+    const errorEle = <div className="alert alert-danger" role="alert">
+                       <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                       <span className="sr-only alert alert-danger">Error:</span>
+                          Invalid Credentials.
+                    </div>;
+
     return (
-      <div className="ui inverted segment">
-        <form className="ui inverted form" onSubmit={this.onSubmit}>
-          <h1>Sign In</h1>
+            <div className="container">
+              <div className="row main">
+                <div className="col-xs-8 col-sm-6 col-md-4 col-md-offset-4">
+                  <p className="h1">
+                    <span><img src={logo} alt="Brand Logo"/></span> Sign In
+                  </p>
+                  <form onSubmit={this.onSubmit}>
 
-          <TextFieldGroup
-              label="Username/e-mail"
-              value={this.state.identifier}
-              type="text"
-              name="identifier"
-              onChange={this.onChange}
-              error={errors.identifier}
-              checkUserExists={this.checkUserExists}
-              />
+                    {errors.form && errorEle}
 
-           <TextFieldGroup
-              label="Password"
-              value={this.state.password}
-              type="password"
-              name="password"
-              onChange={this.onChange}
-              error={errors.password}
-              />
+                    <TextFieldGroup
+                        label="Username/Email"
+                        value={this.state.identifier}
+                        type="text"
+                        name="identifier"
+                        onChange={this.onChange}
+                        error={errors.identifier}
+                        checkUserExists={this.checkUserExists}
+                        />
 
-             <div className="field"> 
-                <button disabled={this.state.isLoading || this.state.invalid} className="ui button">
-                Log In
-                </button>
-            </div>    
-        </form> 
-       </div> 
-      )
+                    <TextFieldGroup
+                        label="Password"
+                        value={this.state.password}
+                        type="password"
+                        name="password"
+                        onChange={this.onChange}
+                        error={errors.password}
+                        />    
+
+                    <div className="form-group">
+                      <button className={classnames("btn btn-primary btn-lg",{disabled:this.state.isLoading || this.state.invalid})} type="submit"><strong>Login</strong></button>
+                      <span className="h4"> No account yet ? <NavLink to="signup"><strong><u>Signup</u></strong></NavLink></span>
+                    </div>    
+                  </form> 
+                </div>
+              </div>    
+            </div> 
+        );
   }
 
 }

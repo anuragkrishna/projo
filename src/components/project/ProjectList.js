@@ -3,12 +3,16 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
 import ProjectAddCard from './ProjectAddCard';
+import './style.css';
 
 export default function ProjectList({projects, deleteProject}){
-
-	return (<div className="ui four stackable cards">
-				<ProjectAddCard />
-				{projects.map((project) => <ProjectCard project={project} key={project.id} deleteProject={deleteProject}/>)}
-			</div>
-			);
+		const boilerPlate= <h3 className="boilerplate">You have no projects. Click on 'Add Projects' to create.</h3>; 
+	return (
+			<div id="artifactlist" className="container">
+    			<div className="jumbotron">
+    				<i className="fa fa-spinner fa-spin" aria-hidden="true"></i>
+    				{projects.length===0 ? boilerPlate : projects.map((project) => <ProjectCard project={project} key={project.id} deleteProject={deleteProject}/>)}
+    			</div>
+    		</div>
+		);
 }

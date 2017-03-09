@@ -77,6 +77,7 @@ export function projectFetched(project) {
  
 
 export function deleteProject(id){
+	console.log("deleteProject")
 	return (dispatch) => {
 		return axios.delete(`/api/project/${id}`)
 				.then(handleResponse)

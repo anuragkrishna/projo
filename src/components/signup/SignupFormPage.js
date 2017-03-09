@@ -6,23 +6,21 @@ import {connect} from 'react-redux';
 import {userSignupRequest, isUserExists} from '../../actions/signupActions';
 import { browserHistory } from 'react-router';
 
-
 class SignupFormPage extends React.Component {
 	
 	render(){
-		const ele = (
+		const ele=1;	
+		const {userSignupRequest, isUserExists} = this.props;
+
+			return (
+				<div>
 					<div className="ui grid">
 		  				<div className="four wide column"></div>
 		  				<div className="eight wide column">
 							<SignupForm userSignupRequest={userSignupRequest} isUserExists={isUserExists}/>	
 						</div>	
 						<div className="four wide column"></div>
-					</div>	
-				);	
-		const {userSignupRequest, isUserExists} = this.props;
-			return (
-				<div>
-					{this.props.isAuthenticated ? browserHistory.push("/") : ele}
+					</div>
 				</div>	
 			);
 		}	

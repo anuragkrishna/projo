@@ -6,9 +6,9 @@ import classnames from 'classnames';
 const TextFieldGroup = ({name, value, label, error, type, onChange, isItemExists}) => {
 		
 	return (
-			<div className={classnames("field", {error:error})}>
-	            <label>{label}</label>
+			<div className={classnames("form-group", {'has-error':error})}>
 	            <input
+	              className="form-control input-lg"	
 	              value={value}
 	              onBlur={isItemExists}
 	              type={type}
@@ -16,7 +16,11 @@ const TextFieldGroup = ({name, value, label, error, type, onChange, isItemExists
 	              placeholder={label}
 	              onChange={onChange}
 	              />
-	              {error && <span className="ui error message">{error}</span>}
+	              {error && <div className="alert alert-warning" role="alert">
+                       <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                       <span className="sr-only alert alert-danger">Error:</span>
+                          {error}
+                    </div>}
          	</div>
 		);
 }

@@ -33,7 +33,6 @@ class NoteCreateFormPage extends React.Component {
 	}
 
   render() {
-    console.log("Passing Note", this.props.note);
     return (
       <div>
       	  {

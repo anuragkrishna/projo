@@ -3,12 +3,15 @@
 import React from 'react';
 import NoteCard from './NoteCard';
 import NoteAddCard from './NoteAddCard';
+import './style.css';
 
 export default function NoteList({notes, deleteNote}){
-
-	return (<div className="ui four cards">
-				<NoteAddCard />
-				{notes.map((note) => <NoteCard note={note} key={note.id} deleteNote={deleteNote}/>)}
-			</div>
+		const boilerPlate= <h3 className="boilerplate">You have no notes. Click on 'Add Note' to create.</h3>; 
+	return (
+			<div id="artifactlist" className="container">
+    			<div className="jumbotron">
+					{notes.length===0 ? boilerPlate : notes.map((note) => <NoteCard note={note} key={note.id} deleteNote={deleteNote}/>)}
+				</div>
+			</div>	
 			);
 }

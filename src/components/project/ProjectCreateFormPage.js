@@ -33,7 +33,7 @@ class ProjectCreateFormPage extends React.Component {
       	  {
       	  	this.state.redirect_to_projects ? this.context.router.push('/projects') :	
           		<ProjectCreateForm project={this.props.project} saveProject={this.saveProject}/> 
-      }
+          }
 
       </div>
     );

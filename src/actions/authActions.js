@@ -16,7 +16,7 @@ export function loginRequest(data) {
   return dispatch => {
     return axios.post('/api/auth', data).then(res => {
       const token = res.data.token;
-      localStorage.setItem('jwtToken', token);
+      window.localStorage.setItem('jwtToken', token);
       setAuthorizationToken(token);
       dispatch(setCurrentUser(jwt_decode(token)));
     });
@@ -25,7 +25,7 @@ export function loginRequest(data) {
 
 export function logoutRequest() {
   return dispatch => {
-    localStorage.removeItem('jwtToken');
+    window.localStorage.removeItem('jwtToken');
     setAuthorizationToken(false);
     dispatch(setCurrentUser({}));
   };

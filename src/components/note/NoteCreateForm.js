@@ -13,7 +13,6 @@ import validateNoteInput from '../../validations/note';
 class NoteCreateForm extends React.Component {
   constructor(props){
     super(props);
-    console.log(props);
     this.state ={
       id: this.props.note ? this.props.note.id : '',
       title:this.props.note ? this.props.note.title : '',
@@ -69,31 +68,35 @@ class NoteCreateForm extends React.Component {
     const errors = this.state.errors;
 
     const form = (
-        <form className={classnames("ui form",{error:errors})} onSubmit={this.handleSubmit}>
-          <h1>{this.state.id ? "Edit Note" : "Add New Note"}</h1>
+                  <div className="container col-xs-12 col-md-8 col-md-offset-2">
+                    <div className="jumbotron">
+                      <form className={classnames("ui form",{error:errors})} onSubmit={this.handleSubmit}>
+                        <h3>{this.state.id ? "Edit Note" : "Add New Note"}</h3>
 
-            {!!errors.global && <div className="ui negative message"><p>{errors.global}</p></div>}
+                          {!!errors.global && <div className="ui negative message"><p>{errors.global}</p></div>}
 
-            <TextFieldGroup
-              label="Title"
-              value={this.state.title}
-              type="text"
-              name="title"
-              onChange={this.onChange}
-              error={errors.title}
-              />
+                          <TextFieldGroup
+                            label="Title"
+                            value={this.state.title}
+                            type="text"
+                            name="title"
+                            onChange={this.onChange}
+                            error={errors.title}
+                            />
 
-              <div className={classnames("field", {error:errors.content})}>
-                <label>Content</label>
-                <textarea name="content" value={this.state.content} onChange={this.onChange} rows="10"></textarea>
-                {errors.content && <span className="ui error message">{errors.content}</span>}
-              </div>  
+                            <div className={classnames("form-group", {error:errors.content})}>
+                              <label>Content</label>
+                              <textarea className="form-control" name="content" value={this.state.content} onChange={this.onChange} rows="10"></textarea>
+                              {errors.content && <span className="ui error message">{errors.content}</span>}
+                            </div>  
 
-            <div className="field">
-              <button className="ui right floated primary button">Save</button>
-              <button className="ui right floated secondary button" onClick={()=>browserHistory.push('/notes')}>Cancel</button>
-            </div>
-      </form>
+                          <div className="field">
+                            <button className="btn btn-primary">Save</button>
+                            <button className="btn btn-secondary" onClick={()=>browserHistory.push('/notes')}>Cancel</button>
+                          </div>
+                    </form>
+                  </div>
+                </div>    
       );
 
     return (

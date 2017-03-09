@@ -1,0 +1,15 @@
+body {
+	background-color: #008080;
+	
+  }
+
+.main {
+	padding-top:130px;
+	color:#fff;
+}
+
+.main > .h1 {
+	font-family:'Georgia serif';
+	font-size:50px;
+	color:#fff;
+}  
