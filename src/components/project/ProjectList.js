@@ -2,7 +2,10 @@
 
 import React from 'react';
 import ProjectCard from './ProjectCard';
-import './style.css';
+
+if (process.env.BROWSER) {
+  require('./style.css');
+}
 
 export default function ProjectList({projects, deleteProject}){
 		const boilerPlate= <h3 className="boilerplate">You have no projects. Click on 'Add Projects' to create.</h3>; 

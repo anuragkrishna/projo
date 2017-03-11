@@ -1,7 +1,10 @@
 /*jshint esversion: 6 */
 
 import React from 'react';
-import './App.css';
+
+if (process.env.BROWSER) {
+  require('./App.css');
+}
 
 import NavigationBar from './NavigationBar';
 

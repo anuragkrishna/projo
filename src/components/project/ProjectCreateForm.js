@@ -7,8 +7,11 @@ import status from './status'
 import map from 'lodash/map';
 import classnames from 'classnames';
 import validateProjectInput from '../../validations/project'; 
-import './style.css';
 import moment from 'moment';
+
+if (process.env.BROWSER) {
+  require('./style.css');
+}
 
 /*
 	author: Anurag Krishna

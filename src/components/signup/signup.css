@@ -1,18 +1,18 @@
 
-.summary {
+.signup-summary {
 	padding-top:130px;
 	font-family:'Georgia serif';
 	color:#fff;
 } 
 
-.detail {
+.signup-detail {
 	padding-top:80px;
 	margin-left:20px;
 	font-family:'Georgia serif';
 	color:#fff;
 }   
 
-a{
+.signup-a{
 	font-size:14px; 
 	color:#0000ff;
 }

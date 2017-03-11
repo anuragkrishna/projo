@@ -2,8 +2,11 @@
 
 import React from 'react';
 import {Modal, Button} from 'react-bootstrap';
-import './style.css';
 import {Link} from 'react-router';
+
+if (process.env.BROWSER) {
+  require('./style.css');
+}
 
 const NoteViewModal = ({note, showViewModal, closeViewModal}) => {
 		let date = new Date(note.created_on);

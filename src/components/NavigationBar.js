@@ -1,15 +1,16 @@
 /*jshint esversion: 6 */
 
 import React from 'react';
-import '../index.css'; 
 
 import {Link} from 'react-router';
 
 import { connect } from 'react-redux';
 import {logoutRequest} from '../actions/authActions';
-import logo from '../../public/img/small-logo.jpg';
-import './App.css';
 
+if (process.env.BROWSER) {
+  require('./App.css');
+  var logo = require('./small-logo.jpg');
+}
 class igationBar extends React.Component{
 
 	constructor(props) {

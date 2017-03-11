@@ -74,7 +74,7 @@ class NoteCreateForm extends React.Component {
     const form = (
                   <div className="container col-xs-12 col-md-8 col-md-offset-2">
                     <div className="jumbotron">
-                      <form className={classnames("ui form",{error:errors})} onSubmit={this.handleSubmit}>
+                      <form className={classnames({error:errors})} onSubmit={this.handleSubmit}>
                         <h3>{this.state.id ? "Edit Note" : "Add New Note"}</h3>
 
                           {!!errors.global && <div className="ui negative message"><p>{errors.global}</p></div>}

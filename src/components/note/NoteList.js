@@ -2,7 +2,11 @@
 
 import React from 'react';
 import NoteCard from './NoteCard';
-import './style.css';
+
+if (process.env.BROWSER) {
+  require('./style.css');
+}
+
 
 export default function NoteList({notes, deleteNote}){
 		const boilerPlate= <h3 className="boilerplate">You have no notes. Click on 'Add Note' to create.</h3>; 

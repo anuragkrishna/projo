@@ -2,10 +2,13 @@
 
 import React from 'react';
 import {Link} from 'react-router';
-import './style.css';
 import {Modal, Button} from 'react-bootstrap';
 import ConfirmModal from '../commons/ConfirmModal';
 import NoteViewModal from './NoteViewModal';
+
+if (process.env.BROWSER) {
+  require('./style.css');
+}
 
 
 export default class NoteCard extends React.Component{
@@ -57,7 +60,7 @@ export default class NoteCard extends React.Component{
 			<ConfirmModal showConfirmModal={this.state.showConfirmModal} closeConfirmModal={this.closeConfirmModal} closeAndRemoveConfirmModal={this.closeAndRemoveConfirmModal} />	
 
 			<div className="col-xs-12 col-sm-6 col-md-3 col-lg-2">
-				<div className="card">
+				<div className="note-card">
 					<div className="list-group">
 						<a href="" onClick={this.openViewModal}>
 							<div className="note-card-content list-group-item">
@@ -65,7 +68,7 @@ export default class NoteCard extends React.Component{
 								<small>{date.toLocaleDateString("en-US")} </small>
 							</div>
 						</a>
-			            <a className="card-action list-group-item" id="remove" href="" onClick={this.openConfirmModal}><span className="glyphicon glyphicon-remove"></span> Remove</a>
+			            <a className="note-card-action list-group-item" id="remove" href="" onClick={this.openConfirmModal}><span className="glyphicon glyphicon-remove"></span> Remove</a>
 			        </div>        
 		        </div>	
 			</div>

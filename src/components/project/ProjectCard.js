@@ -2,9 +2,12 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './style.css';
 import {Modal, Button} from 'react-bootstrap';
 import ConfirmModal from '../commons/ConfirmModal';
+
+if (process.env.BROWSER) {
+  require('./style.css');
+}
 
 class ProjectCard extends React.Component{
 
@@ -39,7 +42,7 @@ class ProjectCard extends React.Component{
 		var date = new Date(project.started_on);
 		return (
 				<div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-				<div className="card">
+				<div className="project-card">
 					<div className="list-group">
 						<div className="card-content list-group-item">
 							<div>	
@@ -62,8 +65,8 @@ class ProjectCard extends React.Component{
 							</span>
 							</div>	
 						</div>
-			            <Link className="card-action list-group-item" id="edit" to={`/project/${project.id}`}><span className="glyphicon glyphicon-pencil"></span> Edit</Link>
-			            <a className="card-action list-group-item" id="remove" href="" onClick={this.openConfirmModal}><span className="glyphicon glyphicon-remove"></span> Remove</a>
+			            <Link className="project-card-action list-group-item" id="edit" to={`/project/${project.id}`}><span className="glyphicon glyphicon-pencil"></span> Edit</Link>
+			            <a className="project-card-action list-group-item" id="remove" href="" onClick={this.openConfirmModal}><span className="glyphicon glyphicon-remove"></span> Remove</a>
 			        </div>    
 				</div>	
 

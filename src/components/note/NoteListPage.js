@@ -16,7 +16,6 @@ class NoteListPage extends React.Component {
   }	
 
   render() {
-    console.log("Rendering Notes");
     return (
       <div>
       	<NoteList notes={this.props.notes} deleteNote={this.props.deleteNote}/>

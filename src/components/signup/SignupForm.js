@@ -5,8 +5,12 @@ import classnames from 'classnames';
 import validateSignupInput from '../../validations/signup'; 
 import TextFieldGroup from '../commons/TextFieldGroup';
 import {Link} from 'react-router';
-import './signup.css';
-import logo from '../../../public/img/large-logo.jpg';
+
+if (process.env.BROWSER) {
+  require('./signup.css');
+  var logo = require('./large-logo.jpg');
+}
+
 
 class SignupForm extends React.Component {
 
@@ -98,7 +102,7 @@ class SignupForm extends React.Component {
     return (
             <div className="container">
               <div className="row">
-                <div className="col-xs-12 col-sm-6 col-md-6 summary">
+                <div className="col-xs-12 col-sm-6 col-md-6 signup-summary">
                   <p className="h1">
                     <span><img src={logo} alt="Brand Logo"/></span> Projek
                   </p>
@@ -107,7 +111,7 @@ class SignupForm extends React.Component {
                   </p>      
                 </div>
 
-                <div className="col-xs-8 col-sm-6 col-md-4 detail">
+                <div className="col-xs-8 col-sm-6 col-md-4 signup-detail">
                   <form className={classnames("ui inverted form",{error:errors})} onSubmit={this.onSubmit}>
                     <div className="form-group">
                       <p className="h1">Sign up</p>
@@ -170,7 +174,7 @@ class SignupForm extends React.Component {
                       />
                     <div className="form-group">
                       <button className={classnames("btn btn-primary btn-lg",{disabled: this.state.isLoading || this.state.invalid})} type="submit"><strong>Sign up</strong></button>  
-                      <span className="h4">   Already have an account ? <Link to="login"><strong><u>Login</u></strong></Link></span>
+                      <span className="h4">   Already have an account ? <Link className="signup-a" to="login"><strong><u>Login</u></strong></Link></span>
                     </div>        
                   </form> 
               </div>

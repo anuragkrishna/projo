@@ -6,8 +6,11 @@ import TextFieldGroup from '../commons/TextFieldGroup';
 import validateLoginInput from '../../validations/login'; 
 import { browserHistory } from 'react-router';
 import {Link} from 'react-router';
-import './login.css';
-import logo from '../../../public/img/large-logo.jpg'
+
+if (process.env.BROWSER) {
+  require('./login.css');
+  var logo = require('./large-logo.jpg');
+}
 
 class LoginForm extends React.Component {
 
@@ -66,7 +69,7 @@ class LoginForm extends React.Component {
 
     return (
             <div className="container">
-              <div className="row main">
+              <div className="row login_main">
                 <div className="col-xs-8 col-sm-6 col-md-4 col-md-offset-4">
                   <p className="h1">
                     <span><img src={logo} alt="Brand Logo"/></span> Sign In

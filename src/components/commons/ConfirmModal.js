@@ -2,8 +2,10 @@
 
 import React from 'react';
 import {Modal, Button} from 'react-bootstrap';
-import './style.css';
 
+if (process.env.BROWSER) {
+  require('./style.css');
+}
 const ConfirmModal = ({showConfirmModal, closeConfirmModal,closeAndRemoveConfirmModal}) => {
 	console.log(showConfirmModal);
 	let showConfirmModal1=false;
