@@ -35,11 +35,7 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "start-dev": "npm run build-dev",
+    "start": "npm run server",
     "build-dev": "webpack -d && xcopy \"public\" \"dist\" && webpack-dev-server --content-base src/ --inline --hot --history-api-fallback",
     "server": "node_modules/.bin/babel-node --presets react,es2015,stage-2 src/server.js"
   },
