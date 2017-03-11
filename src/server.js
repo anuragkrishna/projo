@@ -70,9 +70,9 @@ const store = createStore(rootReducer, composeWithDevTools(
   );
 });
 
-server.listen(8080, err => {
+server.listen(process.env.PORT || 8081, err => {
   if (err) {
     return console.error(err);
   }
-  console.info(`Server running on http://localhost:8080`);
+  console.info(`Server running on`);
 });
