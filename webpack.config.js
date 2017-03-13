@@ -45,9 +45,12 @@ module.exports = {
 	plugins: [
     new webpack.DefinePlugin({
         "process.env": {
-            BROWSER: JSON.stringify(true)
+            BROWSER: JSON.stringify(true), 
+            NODE_ENV:JSON.stringify('production')
         }
-    })
-]
-
+    }),
+    new webpack.optimize.DedupePlugin(), //dedupe similar code 
+    new webpack.optimize.UglifyJsPlugin(), //minify everything
+    new webpack.optimize.AggressiveMergingPlugin()//Merge chunk
+  ]
 };
