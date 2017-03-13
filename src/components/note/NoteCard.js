@@ -63,9 +63,9 @@ export default class NoteCard extends React.Component{
 				<div className="note-card">
 					<div className="list-group">
 						<a href="" onClick={this.openViewModal}>
-							<div className="note-card-content list-group-item">
+							<div id="note_title" className="list-group-item">	
 								<h4><u>{this.props.note.title}</u></h4>
-								<small>{date.toLocaleDateString("en-US")} </small>
+								<small>{date.toLocaleDateString("en-US")}</small>
 							</div>
 						</a>
 			            <a className="note-card-action list-group-item" id="remove" href="" onClick={this.openConfirmModal}><span className="glyphicon glyphicon-remove"></span> Remove</a>

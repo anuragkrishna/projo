@@ -3,34 +3,44 @@
     min-height:550px;
     padding:10px;
     padding-bottom:50px;
+    
 }
 
-.card {
+.project-card {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+
 }
 
 /* On mouse-over, add a deeper shadow */
-.card:hover {
+.project-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 /* Add some padding inside the card container */
-.card-content {
+.project-card-content {
     background-color:#f2b632; 
     font-family:'Georgia sans-serif';
     
 }
 
-.card > .card-action {
+.project-card > .project-card-action {
 	line-height:36px;
 }
 
-.card > .list-group-item {
+.project-card > .list-group-item {
     padding: 0px 2px; 
 }
 
 .boilerplate {
     text-align: center;
+}
+
+#project_name{
+    background-color: #000; 
+    word-wrap: break-word;
+    font-weight: bold;
+    color:#fff;
 }

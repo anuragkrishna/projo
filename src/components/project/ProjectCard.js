@@ -44,10 +44,10 @@ class ProjectCard extends React.Component{
 				<div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 				<div className="project-card">
 					<div className="list-group">
-						<div className="card-content list-group-item">
-							<div>	
-								<h4><u>{project.title}</u></h4>
-							</div>	
+						<div id="project_name" className="list-group-item">	
+							<h4><u>{project.title}</u></h4>
+						</div>
+						<div className="project-card-content list-group-item">
 							<span>
 								<label>Donor: </label>
 								<label>{project.donor}</label>

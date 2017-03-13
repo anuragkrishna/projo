@@ -37022,7 +37022,7 @@
 	    { id: 'artifactlist', className: 'container' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'jumbotron' },
+	      { className: 'jumbotron clearfix' },
 	      projects.length === 0 ? boilerPlate : projects.map(function (project) {
 	        return _react2.default.createElement(_ProjectCard2.default, { project: project, key: project.id, deleteProject: deleteProject });
 	      })
@@ -37117,20 +37117,20 @@
 							{ className: 'list-group' },
 							_react2.default.createElement(
 								'div',
-								{ className: 'card-content list-group-item' },
+								{ id: 'project_name', className: 'list-group-item' },
 								_react2.default.createElement(
-									'div',
+									'h4',
 									null,
 									_react2.default.createElement(
-										'h4',
+										'u',
 										null,
-										_react2.default.createElement(
-											'u',
-											null,
-											project.title
-										)
+										project.title
 									)
-								),
+								)
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'project-card-content list-group-item' },
 								_react2.default.createElement(
 									'span',
 									null,
@@ -60922,7 +60922,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".jumbotron {\r\n    margin-top:80px; \r\n    min-height:550px;\r\n    padding:10px;\r\n    padding-bottom:50px;\r\n}\r\n\r\n.card {\r\n    /* Add shadows to create the \"card\" effect */\r\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n    transition: 0.3s;\r\n}\r\n\r\n/* On mouse-over, add a deeper shadow */\r\n.card:hover {\r\n    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n}\r\n\r\n/* Add some padding inside the card container */\r\n.card-content {\r\n    background-color:#f2b632; \r\n    font-family:'Georgia sans-serif';\r\n    \r\n}\r\n\r\n.card > .card-action {\r\n\tline-height:36px;\r\n}\r\n\r\n.card > .list-group-item {\r\n    padding: 0px 2px; \r\n}\r\n\r\n.boilerplate {\r\n    text-align: center;\r\n}", ""]);
+	exports.push([module.id, ".jumbotron {\r\n    margin-top:80px; \r\n    min-height:550px;\r\n    padding:10px;\r\n    padding-bottom:50px;\r\n    \r\n}\r\n\r\n.project-card {\r\n    /* Add shadows to create the \"card\" effect */\r\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n    transition: 0.3s;\r\n    font-family:\"Comic Sans MS\", cursive, sans-serif;\r\n\r\n}\r\n\r\n/* On mouse-over, add a deeper shadow */\r\n.project-card:hover {\r\n    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n}\r\n\r\n/* Add some padding inside the card container */\r\n.project-card-content {\r\n    background-color:#f2b632; \r\n    font-family:'Georgia sans-serif';\r\n    \r\n}\r\n\r\n.project-card > .project-card-action {\r\n\tline-height:36px;\r\n}\r\n\r\n.project-card > .list-group-item {\r\n    padding: 0px 2px; \r\n}\r\n\r\n.boilerplate {\r\n    text-align: center;\r\n}\r\n\r\n#project_name{\r\n    background-color: #000; \r\n    word-wrap: break-word;\r\n    font-weight: bold;\r\n    color:#fff;\r\n}", ""]);
 	
 	// exports
 
@@ -79946,7 +79946,7 @@
 			{ id: 'artifactlist', className: 'container' },
 			_react2.default.createElement(
 				'div',
-				{ className: 'jumbotron' },
+				{ className: 'jumbotron clearfix' },
 				notes.length === 0 ? boilerPlate : notes.map(function (note) {
 					return _react2.default.createElement(_NoteCard2.default, { note: note, key: note.id, deleteNote: deleteNote });
 				})
@@ -80061,7 +80061,7 @@
 																	{ href: '', onClick: this.openViewModal },
 																	_react2.default.createElement(
 																			'div',
-																			{ className: 'note-card-content list-group-item' },
+																			{ id: 'note_title', className: 'list-group-item' },
 																			_react2.default.createElement(
 																					'h4',
 																					null,
@@ -80074,8 +80074,7 @@
 																			_react2.default.createElement(
 																					'small',
 																					null,
-																					date.toLocaleDateString("en-US"),
-																					' '
+																					date.toLocaleDateString("en-US")
 																			)
 																	)
 															),
@@ -80220,7 +80219,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".jumbotron {\r\n    margin-top:80px; \r\n    min-height:550px;\r\n}\r\n\r\n\r\n.note-card {\r\n    /* Add shadows to create the \"card\" effect */\r\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n    transition: 0.3s;\r\n    margin:10px;\r\n}\r\n\r\n/* On mouse-over, add a deeper shadow */\r\n.note-card:hover {\r\n    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n}\r\n\r\n/* Add some padding inside the card container */\r\n.note-card-content {\r\n    padding: 2px 16px;\r\n    background-color:#5cb85c; \r\n    font-family:'Georgia sans-serif';\r\n    color:#000;\r\n}\r\n\r\n.note-card > .card-action {\r\n\tline-height:36px;\r\n}\r\n\r\n.note-card > .list-group-item {\r\n    padding: 0px 2px; \r\n}\r\n\r\n.boilerplate {\r\n    text-align: center;\r\n}\r\n\r\n.modal-dialog{\r\n    position: absolute;\r\n    top: 30%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%) !important;\r\n    background-color: #fff;\r\n}\r\n\r\n.btn-spacing{\r\n    margin-right:5px;\r\n}\r\n\r\n.view-modal {\r\n    width:30%;\r\n}", ""]);
+	exports.push([module.id, ".jumbotron {\r\n    margin-top:80px; \r\n    min-height:550px;\r\n}\r\n\r\n\r\n.note-card {\r\n    /* Add shadows to create the \"card\" effect */\r\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n    transition: 0.3s;\r\n    margin:10px;\r\n    font-family:\"Comic Sans MS\", cursive, sans-serif;\r\n}\r\n\r\n/* On mouse-over, add a deeper shadow */\r\n.note-card:hover {\r\n    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n}\r\n\r\n/* Add some padding inside the card container */\r\n.note-card-content {\r\n    padding: 2px 16px;\r\n    background-color:#5cb85c; \r\n    font-family:'Georgia sans-serif';\r\n    color:#000;\r\n}\r\n\r\n.note-card > .card-action {\r\n\tline-height:36px;\r\n}\r\n\r\n.note-card > .list-group-item {\r\n    padding: 0px 2px; \r\n}\r\n\r\n.boilerplate {\r\n    text-align: center;\r\n}\r\n\r\n.modal-dialog{\r\n    position: absolute;\r\n    top: 30%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%) !important;\r\n    background-color: #fff;\r\n}\r\n\r\n.btn-spacing{\r\n    margin-right:5px;\r\n}\r\n\r\n.view-modal {\r\n    width:30%;\r\n}\r\n\r\n#note_title{\r\n    background-color: #5cb85c; \r\n    word-wrap: break-word;\r\n    font-weight: bold;\r\n    color:#fff;\r\n}", ""]);
 	
 	// exports
 
