@@ -1,13 +1,19 @@
 /*jshint esversion: 6 */
-import {P_SET_PROJECTS, P_SAVE_PROJECT, P_PROJECT_UPDATED, P_PROJECT_FETCHED, P_PROJECT_DELETED} from './types';
+
+import {P_SET_PROJECTS, P_SAVE_PROJECT, P_PROJECT_UPDATED, P_PROJECT_FETCHED, P_PROJECT_DELETED, LIST_LOADING} from './types';
 
 import axios from 'axios';
 
 export function fetchAllProjects(){
 	return (dispatch) =>{
+		dispatch(setIsLoading(true));
 		return axios.get('https://projek-api.herokuapp.com/api/projects')
 			.then(response=>response.data)
-			.then((projects)=>dispatch(setProjects(projects)));
+			.then((projects)=>{
+				dispatch(setIsLoading(false));
+				dispatch(setProjects(projects));
+			}
+		);
 	};
 }
 
@@ -15,6 +21,13 @@ export function setProjects(projects){
 	return {
 		type: P_SET_PROJECTS,
 		projects
+	};
+}
+
+export function setIsLoading(isLoading){
+	return {
+		type: LIST_LOADING,
+		isLoading
 	};
 }
 

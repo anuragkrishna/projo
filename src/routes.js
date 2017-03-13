@@ -28,7 +28,7 @@ export default (
 			<Route path="notes" component={requireAuth(NoteListPage)}/>
 			<Route path="notes/create" component={requireAuth(NoteCreateFormPage)}/>
 			<Route path="note/:id" component={requireAuth(NoteCreateFormPage)}/>
-			<Route path="*" component={NotFound}/>
-		</Route>	
+		</Route>
+		<Route path="*" component={NotFound}/>	
 	</Route>		
 	);

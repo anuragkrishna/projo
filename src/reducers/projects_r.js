@@ -32,7 +32,7 @@ export default function projects_r(state=[], action={}){
 				]
 			}
 		case P_PROJECT_DELETED:
-			return state.filter(item => item.id!==action.project.id);			
+			return state.filter(item => item.id!==action.project.id);	
 		default:
 			return state;	
 	}

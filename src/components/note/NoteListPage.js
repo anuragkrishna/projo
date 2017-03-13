@@ -13,22 +13,24 @@ class NoteListPage extends React.Component {
 
   componentDidMount(){
   	this.props.fetchAllNotes();
-  }	
+   }	
 
   render() {
+      const boilerPlate= <h3 className="boilerplate">You have no notes. Click on 'Add Note' to create.</h3>; 
+      const loadingPlate= <h3 className="boilerplate">Loading...</h3>; 
     return (
-      <div>
-      	<NoteList notes={this.props.notes} deleteNote={this.props.deleteNote}/>
+        <div className="jumbotron clearfix">
+          {this.props.isLoading ? loadingPlate : this.props.notes.length===0 ? boilerPlate : <NoteList notes={this.props.notes} deleteNote={this.props.deleteNote}/>
+            }
       </div>
      );
     }
 }    
 
-
-
 function mapStateToProps(state){
-	return {
-		notes: state.notes_r
+  return {
+		notes: state.notes_r,
+    isLoading: state.loader_r
 	};
 }
 

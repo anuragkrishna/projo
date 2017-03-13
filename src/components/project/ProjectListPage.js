@@ -16,9 +16,13 @@ class ProjectListPage extends React.Component {
   }	
 
   render() {
+    const boilerPlate= <h3 className="boilerplate">You have no projects. Click on 'Add Projects' to create.</h3>;
+    const loadingPlate= <h3 className="boilerplate">Loading...</h3>;
     return (
-      <div>
-      	<ProjectList projects={this.props.projects} deleteProject={this.props.deleteProject}/>
+      <div className="jumbotron clearfix">
+        {this.props.isLoading ? loadingPlate : this.props.projects.length===0 ? boilerPlate 
+          : <ProjectList projects={this.props.projects} deleteProject={this.props.deleteProject}/>
+        }
       </div>
      );
     }
@@ -28,7 +32,8 @@ class ProjectListPage extends React.Component {
 
 function mapStateToProps(state){
 	return {
-		projects: state.projects_r
+		projects: state.projects_r,
+    isLoading: state.loader_r
 	};
 }
 

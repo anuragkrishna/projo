@@ -8,12 +8,12 @@ if (process.env.BROWSER) {
 }
 
 export default function ProjectList({projects, deleteProject}){
-		const boilerPlate= <h3 className="boilerplate">You have no projects. Click on 'Add Projects' to create.</h3>; 
+		console.log(projects);
 	return (
 			<div id="artifactlist" className="container">
-    			<div className="jumbotron clearfix">
+    			<div>
     				
-    				{projects.length===0 ? boilerPlate : projects.map((project) => <ProjectCard project={project} key={project.id} deleteProject={deleteProject}/>)}
+    				{projects.map((project) => <ProjectCard project={project} key={project.id} deleteProject={deleteProject}/>)}
     			</div>
     		</div>
 		);

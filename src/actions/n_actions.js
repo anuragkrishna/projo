@@ -1,14 +1,19 @@
 /*jshint esversion: 6 */
 
-import {P_SET_NOTES, P_SAVE_NOTE, P_NOTE_UPDATED, P_NOTE_FETCHED, P_NOTE_DELETED} from './types';
+import {P_SET_NOTES, P_SAVE_NOTE, P_NOTE_UPDATED, P_NOTE_FETCHED, P_NOTE_DELETED, LIST_LOADING} from './types';
 
 import axios from 'axios';
 
 export function fetchAllNotes(){
 	return (dispatch) =>{
+		dispatch(setIsLoading(true));
 		return axios.get('https://projek-api.herokuapp.com/api/notes')
 			.then(response=>response.data)
-			.then((notes)=>dispatch(setNotes(notes)));
+			.then((notes)=> {
+				dispatch(setIsLoading(false));
+				dispatch(setNotes(notes));
+			}	
+		);
 	};
 }
 
@@ -16,6 +21,13 @@ export function setNotes(notes){
 	return {
 		type: P_SET_NOTES,
 		notes
+	};
+}
+
+export function setIsLoading(isLoading){
+	return {
+		type: LIST_LOADING,
+		isLoading
 	};
 }
 
