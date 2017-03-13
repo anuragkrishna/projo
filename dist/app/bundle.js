@@ -22909,7 +22909,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	exports.default = projects_r;
 
@@ -22917,44 +22917,46 @@
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } /*jshint esversion: 6 */
 
-	function projects_r() {
-		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-		var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-		switch (action.type) {
-			case _types.P_SET_PROJECTS:
-				return action.projects;
-			case _types.P_SAVE_PROJECT:
-				return [].concat(_toConsumableArray(state), [action.project]);
-			case _types.P_PROJECT_UPDATED:
-				return state.map(function (item) {
-					if (item.id === action.project.id) {
-						return action.project;
-					} else {
-						return item;
-					}
-				});
-			case _types.P_PROJECT_FETCHED:
-				var index = state.findIndex(function (item) {
-					return item.id === action.project.id;
-				});
-				if (index > -1) {
-					return state.map(function (item) {
-						if (item.id === action.project.id) {
-							return action.project;
-						}
-						return item;
-					});
-				} else {
-					return [].concat(_toConsumableArray(state), [action.project]);
-				}
-			case _types.P_PROJECT_DELETED:
-				return state.filter(function (item) {
-					return item.id !== action.project.id;
-				});
-			default:
-				return state;
-		}
+	function projects_r() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+	    switch (action.type) {
+	        case _types.P_SET_PROJECTS:
+	            return action.projects;
+	        case _types.P_SAVE_PROJECT:
+	            return [].concat(_toConsumableArray(state), [action.project]);
+	        case _types.P_PROJECT_UPDATED:
+	            return state.map(function (item) {
+	                if (item.id === action.project.id) {
+	                    return action.project;
+	                } else {
+	                    return item;
+	                }
+	            });
+	        case _types.P_PROJECT_FETCHED:
+	            var index = state.findIndex(function (item) {
+	                return item.id === action.project.id;
+	            });
+	            if (index > -1) {
+	                return state.map(function (item) {
+	                    if (item.id === action.project.id) {
+	                        return action.project;
+	                    }
+	                    return item;
+	                });
+	            } else {
+	                return [].concat(_toConsumableArray(state), [action.project]);
+	            }
+	            break;
+	        case _types.P_PROJECT_DELETED:
+	            return state.filter(function (item) {
+	                return item.id !== action.project.id;
+	            });
+	        default:
+	            return state;
+	    }
 	}
 
 /***/ },
@@ -22967,19 +22969,15 @@
 	  value: true
 	});
 	/*jshint esversion: 6 */
-
 	var ADD_FLASH_MESSAGE = exports.ADD_FLASH_MESSAGE = "ADD_FLASH_MESSAGE";
 	var DELETE_FLASH_MESSAGE = exports.DELETE_FLASH_MESSAGE = "DELETE_FLASH_MESSAGE";
 	var SET_CURRENT_USER = exports.SET_CURRENT_USER = "SET_CURRENT_USER";
-
 	var P_SET_PROJECTS = exports.P_SET_PROJECTS = "P_SET_PROJECTS";
 	var P_SAVE_PROJECT = exports.P_SAVE_PROJECT = "P_SAVE_PROJECT";
 	var P_PROJECT_UPDATED = exports.P_PROJECT_UPDATED = "P_PROJECT_UPDATED";
 	var P_PROJECT_FETCHED = exports.P_PROJECT_FETCHED = "P_PROJECT_FETCHED";
 	var P_PROJECT_DELETED = exports.P_PROJECT_DELETED = "P_PROJECT_DELETED";
-
 	var LIST_LOADING = exports.LIST_LOADING = "LIST_LOADING";
-
 	var P_SET_NOTES = exports.P_SET_NOTES = "P_SET_NOTES";
 	var P_SAVE_NOTE = exports.P_SAVE_NOTE = "P_SAVE_NOTE";
 	var P_NOTE_UPDATED = exports.P_NOTE_UPDATED = "P_NOTE_UPDATED";
@@ -22993,7 +22991,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	exports.default = notes_r;
 
@@ -23001,44 +22999,46 @@
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } /*jshint esversion: 6 */
 
-	function notes_r() {
-		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-		var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-		switch (action.type) {
-			case _types.P_SET_NOTES:
-				return action.notes;
-			case _types.P_SAVE_NOTE:
-				return [].concat(_toConsumableArray(state), [action.note]);
-			case _types.P_NOTE_UPDATED:
-				return state.map(function (item) {
-					if (item._id === action.note._id) {
-						return action.note;
-					} else {
-						return item;
-					}
-				});
-			case _types.P_NOTE_FETCHED:
-				var index = state.findIndex(function (item) {
-					return item._id === action.note._id;
-				});
-				if (index > -1) {
-					return state.map(function (item) {
-						if (item._id === action.note._id) {
-							return action.note;
-						}
-						return item;
-					});
-				} else {
-					return [].concat(_toConsumableArray(state), [action.note]);
-				}
-			case _types.P_NOTE_DELETED:
-				return state.filter(function (item) {
-					return item._id !== action.note._id;
-				});
-			default:
-				return state;
-		}
+	function notes_r() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+	    switch (action.type) {
+	        case _types.P_SET_NOTES:
+	            return action.notes;
+	        case _types.P_SAVE_NOTE:
+	            return [].concat(_toConsumableArray(state), [action.note]);
+	        case _types.P_NOTE_UPDATED:
+	            return state.map(function (item) {
+	                if (item._id === action.note._id) {
+	                    return action.note;
+	                } else {
+	                    return item;
+	                }
+	            });
+	        case _types.P_NOTE_FETCHED:
+	            var index = state.findIndex(function (item) {
+	                return item._id === action.note._id;
+	            });
+	            if (index > -1) {
+	                return state.map(function (item) {
+	                    if (item._id === action.note._id) {
+	                        return action.note;
+	                    }
+	                    return item;
+	                });
+	            } else {
+	                return [].concat(_toConsumableArray(state), [action.note]);
+	            }
+	            break;
+	        case _types.P_NOTE_DELETED:
+	            return state.filter(function (item) {
+	                return item._id !== action.note._id;
+	            });
+	        default:
+	            return state;
+	    }
 	}
 
 /***/ },
@@ -23048,7 +23048,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 
 	var _types = __webpack_require__(206);
@@ -23060,27 +23060,25 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*jshint esversion: 6 */
-
 	var initialState = {
-		isAuthenticated: false,
-		user: {}
+	    isAuthenticated: false,
+	    user: {}
 	};
 
 	function auth() {
-		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-		var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+	    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-		switch (action.type) {
-			case _types.SET_CURRENT_USER:
-				return {
-					isAuthenticated: !(0, _isEmpty2.default)(action.user),
-					user: action.user
-				};
-			default:
-				return state;
-		}
+	    switch (action.type) {
+	        case _types.SET_CURRENT_USER:
+	            return {
+	                isAuthenticated: !(0, _isEmpty2.default)(action.user),
+	                user: action.user
+	            };
+	        default:
+	            return state;
+	    }
 	}
-
 	exports.default = auth;
 
 /***/ },
@@ -30495,7 +30493,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.setCurrentUser = setCurrentUser;
 	exports.loginRequest = loginRequest;
@@ -30518,35 +30516,32 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*jshint esversion: 6 */
-
 	function setCurrentUser(user) {
-	  return {
-	    type: _types.SET_CURRENT_USER,
-	    user: user
-	  };
+	    return {
+	        type: _types.SET_CURRENT_USER,
+	        user: user
+	    };
 	}
-
 	function loginRequest(data) {
-	  return function (dispatch) {
-	    return _axios2.default.post('https://projek-api.herokuapp.com/api/auth', data).then(function (res) {
-	      var token = res.data.token;
-	      if (typeof window !== 'undefined') {
-	        window.localStorage.setItem('jwtToken', token);
-	        (0, _setAuthorizationToken2.default)(token);
-	        dispatch(setCurrentUser((0, _jwtDecode2.default)(token)));
-	      }
-	    });
-	  };
+	    return function (dispatch) {
+	        return _axios2.default.post('https://projek-api.herokuapp.com/api/auth', data).then(function (res) {
+	            var token = res.data.token;
+	            if (typeof window !== 'undefined') {
+	                window.localStorage.setItem('jwtToken', token);
+	                (0, _setAuthorizationToken2.default)(token);
+	                dispatch(setCurrentUser((0, _jwtDecode2.default)(token)));
+	            }
+	        });
+	    };
 	}
-
 	function logoutRequest() {
-	  return function (dispatch) {
-	    if (typeof window !== 'undefined') {
-	      window.localStorage.removeItem('jwtToken');
-	      (0, _setAuthorizationToken2.default)(false);
-	      dispatch(setCurrentUser({}));
-	    }
-	  };
+	    return function (dispatch) {
+	        if (typeof window !== 'undefined') {
+	            window.localStorage.removeItem('jwtToken');
+	            (0, _setAuthorizationToken2.default)(false);
+	            dispatch(setCurrentUser({}));
+	        }
+	    };
 	}
 
 /***/ },
@@ -32367,7 +32362,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.default = validateSignupInput;
 
@@ -32382,71 +32377,63 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*jshint esversion: 6 */
-
 	function validateSignupInput(data) {
-
-	  var errors = {};
-
-	  if (_validator2.default.isEmpty(data.first_name)) {
-	    errors.first_name = "This field is isRequired.";
-	  }
-
-	  if (!_validator2.default.isAlpha(data.first_name)) {
-	    errors.first_name = "Only Alphabets allowed.";
-	  }
-
-	  if (!_validator2.default.isLength(data.first_name, { min: 0, max: 35 })) {
-	    errors.first_name = "Limit: 35 characters.";
-	  }
-
-	  if (_validator2.default.isEmpty(data.last_name)) {
-	    errors.username = "This field is Required.";
-	  }
-
-	  if (!_validator2.default.isAlpha(data.last_name)) {
-	    errors.last_name = "Only Alphabets allowed.";
-	  }
-
-	  if (!_validator2.default.isLength(data.last_name, { min: 0, max: 35 })) {
-	    errors.last_name = "Limit: 35 characters.";
-	  }
-
-	  if (_validator2.default.isEmpty(data.username)) {
-	    errors.username = "This field is Required.";
-	  }
-
-	  if (!_validator2.default.isAlpha(data.username)) {
-	    errors.username = "Only Alphabets allowed.";
-	  }
-
-	  if (!_validator2.default.isLength(data.username, { min: 0, max: 20 })) {
-	    errors.username = "Limit: 20 characters.";
-	  }
-
-	  if (_validator2.default.isEmpty(data.email)) {
-	    errors.email = "This field is isRequired.";
-	  }
-
-	  if (!_validator2.default.isEmail(data.email)) {
-	    errors.email = "Invalid Email";
-	  }
-
-	  if (_validator2.default.isEmpty(data.password)) {
-	    errors.password = "This field is Required.";
-	  }
-
-	  if (_validator2.default.isEmpty(data.passwordConfirmation)) {
-	    errors.passwordConfirmation = "This field is Required.";
-	  }
-
-	  if (!_validator2.default.equals(data.password, data.passwordConfirmation)) {
-	    errors.passwordConfirmation = "Passwords must match.";
-	  }
-
-	  return {
-	    errors: errors,
-	    isValid: (0, _isEmpty2.default)(errors)
-	  };
+	    var errors = {};
+	    if (_validator2.default.isEmpty(data.first_name)) {
+	        errors.first_name = "This field is isRequired.";
+	    }
+	    if (!_validator2.default.isAlpha(data.first_name)) {
+	        errors.first_name = "Only Alphabets allowed.";
+	    }
+	    if (!_validator2.default.isLength(data.first_name, {
+	        min: 0,
+	        max: 35
+	    })) {
+	        errors.first_name = "Limit: 35 characters.";
+	    }
+	    if (_validator2.default.isEmpty(data.last_name)) {
+	        errors.username = "This field is Required.";
+	    }
+	    if (!_validator2.default.isAlpha(data.last_name)) {
+	        errors.last_name = "Only Alphabets allowed.";
+	    }
+	    if (!_validator2.default.isLength(data.last_name, {
+	        min: 0,
+	        max: 35
+	    })) {
+	        errors.last_name = "Limit: 35 characters.";
+	    }
+	    if (_validator2.default.isEmpty(data.username)) {
+	        errors.username = "This field is Required.";
+	    }
+	    if (!_validator2.default.isAlpha(data.username)) {
+	        errors.username = "Only Alphabets allowed.";
+	    }
+	    if (!_validator2.default.isLength(data.username, {
+	        min: 0,
+	        max: 20
+	    })) {
+	        errors.username = "Limit: 20 characters.";
+	    }
+	    if (_validator2.default.isEmpty(data.email)) {
+	        errors.email = "This field is isRequired.";
+	    }
+	    if (!_validator2.default.isEmail(data.email)) {
+	        errors.email = "Invalid Email";
+	    }
+	    if (_validator2.default.isEmpty(data.password)) {
+	        errors.password = "This field is Required.";
+	    }
+	    if (_validator2.default.isEmpty(data.passwordConfirmation)) {
+	        errors.passwordConfirmation = "This field is Required.";
+	    }
+	    if (!_validator2.default.equals(data.password, data.passwordConfirmation)) {
+	        errors.passwordConfirmation = "Passwords must match.";
+	    }
+	    return {
+	        errors: errors,
+	        isValid: (0, _isEmpty2.default)(errors)
+	    };
 	}
 
 /***/ },
@@ -35264,7 +35251,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	exports.userSignupRequest = userSignupRequest;
 	exports.isUserExists = isUserExists;
@@ -35276,15 +35263,14 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function userSignupRequest(userData) {
-		return function (dispatch) {
-			return _axios2.default.post('https://projek-api.herokuapp.com/api/user', userData);
-		};
+	    return function (dispatch) {
+	        return _axios2.default.post('https://projek-api.herokuapp.com/api/user', userData);
+	    };
 	} /*jshint esversion: 6 */
-
 	function isUserExists(identifier) {
-		return function (dispatch) {
-			return _axios2.default.get('https://projek-api.herokuapp.com/api/user/' + identifier);
-		};
+	    return function (dispatch) {
+	        return _axios2.default.get('https://projek-api.herokuapp.com/api/user/' + identifier);
+	    };
 	}
 
 /***/ },
@@ -35574,7 +35560,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.default = validateLoginInput;
 
@@ -35589,22 +35575,18 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*jshint esversion: 6 */
-
 	function validateLoginInput(data) {
-	  var errors = {};
-
-	  if (_validator2.default.isEmpty(data.identifier)) {
-	    errors.identifier = 'This field is required';
-	  }
-
-	  if (_validator2.default.isEmpty(data.password)) {
-	    errors.password = 'This field is required';
-	  }
-
-	  return {
-	    errors: errors,
-	    isValid: (0, _isEmpty2.default)(errors)
-	  };
+	    var errors = {};
+	    if (_validator2.default.isEmpty(data.identifier)) {
+	        errors.identifier = 'This field is required';
+	    }
+	    if (_validator2.default.isEmpty(data.password)) {
+	        errors.password = 'This field is required';
+	    }
+	    return {
+	        errors: errors,
+	        isValid: (0, _isEmpty2.default)(errors)
+	    };
 	}
 
 /***/ },
@@ -58761,7 +58743,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	exports.fetchAllProjects = fetchAllProjects;
 	exports.setProjects = setProjects;
@@ -58785,108 +58767,96 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*jshint esversion: 6 */
-
 	function fetchAllProjects() {
-		return function (dispatch) {
-			dispatch(setIsLoading(true));
-			return _axios2.default.get('https://projek-api.herokuapp.com/api/projects').then(function (response) {
-				return response.data;
-			}).then(function (projects) {
-				dispatch(setIsLoading(false));
-				dispatch(setProjects(projects));
-			});
-		};
+	    return function (dispatch) {
+	        dispatch(setIsLoading(true));
+	        return _axios2.default.get('https://projek-api.herokuapp.com/api/projects').then(function (response) {
+	            return response.data;
+	        }).then(function (projects) {
+	            dispatch(setIsLoading(false));
+	            dispatch(setProjects(projects));
+	        });
+	    };
 	}
-
 	function setProjects(projects) {
-		return {
-			type: _types.P_SET_PROJECTS,
-			projects: projects
-		};
+	    return {
+	        type: _types.P_SET_PROJECTS,
+	        projects: projects
+	    };
 	}
-
 	function setIsLoading(isLoading) {
-		return {
-			type: _types.LIST_LOADING,
-			isLoading: isLoading
-		};
+	    return {
+	        type: _types.LIST_LOADING,
+	        isLoading: isLoading
+	    };
 	}
-
 	function saveProject(data) {
-		return function (dispatch) {
-			return _axios2.default.post('https://projek-api.herokuapp.com/api/project', data).then(handleResponse).then(function (project) {
-				return dispatch(addProject(project));
-			});
-		};
+	    return function (dispatch) {
+	        return _axios2.default.post('https://projek-api.herokuapp.com/api/project', data).then(handleResponse).then(function (project) {
+	            return dispatch(addProject(project));
+	        });
+	    };
 	}
 
 	function handleResponse(response) {
-		if (response.status === 200) {
-			return response.data;
-		} else {
-			var error = new Error(response.statusText);
-			error.response = response;
-			throw error;
-		}
+	    if (response.status === 200) {
+	        return response.data;
+	    } else {
+	        var error = new Error(response.statusText);
+	        error.response = response;
+	        throw error;
+	    }
 	}
-
 	function addProject(project) {
-		return {
-			type: _types.P_SAVE_PROJECT,
-			project: project
-		};
+	    return {
+	        type: _types.P_SAVE_PROJECT,
+	        project: project
+	    };
 	}
-
 	function updateProject(data) {
-		return function (dispatch) {
-			return _axios2.default.put('https://projek-api.herokuapp.com/api/project/' + data.id, data).then(handleResponse).then(function (project) {
-				return dispatch(projectUpdated(project));
-			});
-		};
+	    return function (dispatch) {
+	        return _axios2.default.put('https://projek-api.herokuapp.com/api/project/' + data.id, data).then(handleResponse).then(function (project) {
+	            return dispatch(projectUpdated(project));
+	        });
+	    };
 	}
-
 	function projectUpdated(project) {
-		return {
-			type: _types.P_PROJECT_UPDATED,
-			project: project
-		};
+	    return {
+	        type: _types.P_PROJECT_UPDATED,
+	        project: project
+	    };
 	}
-
 	function fetchProject(id) {
-		return function (dispatch) {
-			return _axios2.default.get('https://projek-api.herokuapp.com/api/project/' + id).then(handleResponse).then(function (data) {
-				return dispatch(projectFetched(data));
-			});
-		};
+	    return function (dispatch) {
+	        return _axios2.default.get('https://projek-api.herokuapp.com/api/project/' + id).then(handleResponse).then(function (data) {
+	            return dispatch(projectFetched(data));
+	        });
+	    };
 	}
-
 	function projectFetched(project) {
-		return {
-			type: _types.P_PROJECT_FETCHED,
-			project: project
-		};
+	    return {
+	        type: _types.P_PROJECT_FETCHED,
+	        project: project
+	    };
 	}
-
 	function isProjectExists(identifier) {
-		return function (dispatch) {
-			return _axios2.default.get('https://projek-api.herokuapp.com/api/project/' + identifier);
-		};
+	    return function (dispatch) {
+	        return _axios2.default.get('https://projek-api.herokuapp.com/api/project/' + identifier);
+	    };
 	}
-
 	function deleteProject(id) {
-		console.log("deleteProject");
-		return function (dispatch) {
-			return _axios2.default.delete('https://projek-api.herokuapp.com/api/project/' + id).then(handleResponse).then(function (project) {
-				return dispatch(projectDeleted(project));
-			});
-		};
+	    console.log("deleteProject");
+	    return function (dispatch) {
+	        return _axios2.default.delete('https://projek-api.herokuapp.com/api/project/' + id).then(handleResponse).then(function (project) {
+	            return dispatch(projectDeleted(project));
+	        });
+	    };
 	}
-
 	function projectDeleted(project) {
-		return {
-			type: _types.P_PROJECT_DELETED,
-			project: project
-		};
+	    return {
+	        type: _types.P_PROJECT_DELETED,
+	        project: project
+	    };
 	}
 
 /***/ },
@@ -62136,7 +62106,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.default = validateProjectInput;
 
@@ -62151,34 +62121,34 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*jshint esversion: 6 */
-
 	function validateProjectInput(data) {
-	  var errors = {};
-
-	  if (_validator2.default.isEmpty(data.title)) {
-	    errors.title = 'This field is required';
-	  } else if (!_validator2.default.isLength(data.title, { min: 0, max: 50 })) {
-	    errors.title = 'Limit: 50 characters.';
-	  }
-
-	  if (_validator2.default.isEmpty(data.donor)) {
-	    errors.donor = 'This field is required';
-	  } else if (!_validator2.default.isLength(data.donor, { min: 0, max: 50 })) {
-	    errors.donor = 'Limit: 50 characters.';
-	  }
-
-	  if (_validator2.default.isEmpty(data.status)) {
-	    errors.status = 'This field is required';
-	  }
-
-	  if (_validator2.default.isEmpty(data.started_on)) {
-	    errors.status = 'This field is required';
-	  }
-
-	  return {
-	    errors: errors,
-	    isValid: (0, _isEmpty2.default)(errors)
-	  };
+	    var errors = {};
+	    if (_validator2.default.isEmpty(data.title)) {
+	        errors.title = 'This field is required';
+	    } else if (!_validator2.default.isLength(data.title, {
+	        min: 0,
+	        max: 50
+	    })) {
+	        errors.title = 'Limit: 50 characters.';
+	    }
+	    if (_validator2.default.isEmpty(data.donor)) {
+	        errors.donor = 'This field is required';
+	    } else if (!_validator2.default.isLength(data.donor, {
+	        min: 0,
+	        max: 50
+	    })) {
+	        errors.donor = 'Limit: 50 characters.';
+	    }
+	    if (_validator2.default.isEmpty(data.status)) {
+	        errors.status = 'This field is required';
+	    }
+	    if (_validator2.default.isEmpty(data.started_on)) {
+	        errors.status = 'This field is required';
+	    }
+	    return {
+	        errors: errors,
+	        isValid: (0, _isEmpty2.default)(errors)
+	    };
 	}
 
 /***/ },
@@ -77458,7 +77428,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	exports.fetchAllNotes = fetchAllNotes;
 	exports.setNotes = setNotes;
@@ -77481,101 +77451,90 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*jshint esversion: 6 */
-
 	function fetchAllNotes() {
-		return function (dispatch) {
-			dispatch(setIsLoading(true));
-			return _axios2.default.get('https://projek-api.herokuapp.com/api/notes').then(function (response) {
-				return response.data;
-			}).then(function (notes) {
-				dispatch(setIsLoading(false));
-				dispatch(setNotes(notes));
-			});
-		};
+	    return function (dispatch) {
+	        dispatch(setIsLoading(true));
+	        return _axios2.default.get('https://projek-api.herokuapp.com/api/notes').then(function (response) {
+	            return response.data;
+	        }).then(function (notes) {
+	            dispatch(setIsLoading(false));
+	            dispatch(setNotes(notes));
+	        });
+	    };
 	}
-
 	function setNotes(notes) {
-		return {
-			type: _types.P_SET_NOTES,
-			notes: notes
-		};
+	    return {
+	        type: _types.P_SET_NOTES,
+	        notes: notes
+	    };
 	}
-
 	function setIsLoading(isLoading) {
-		return {
-			type: _types.LIST_LOADING,
-			isLoading: isLoading
-		};
+	    return {
+	        type: _types.LIST_LOADING,
+	        isLoading: isLoading
+	    };
 	}
-
 	function saveNote(data) {
-		return function (dispatch) {
-			return _axios2.default.post('https://projek-api.herokuapp.com/api/note', data).then(handleResponse).then(function (note) {
-				return dispatch(addNote(note));
-			});
-		};
+	    return function (dispatch) {
+	        return _axios2.default.post('https://projek-api.herokuapp.com/api/note', data).then(handleResponse).then(function (note) {
+	            return dispatch(addNote(note));
+	        });
+	    };
 	}
 
 	function handleResponse(response) {
-		if (response.status === 200) {
-			return response.data;
-		} else {
-			var error = new Error(response.statusText);
-			error.response = response;
-			throw error;
-		}
+	    if (response.status === 200) {
+	        return response.data;
+	    } else {
+	        var error = new Error(response.statusText);
+	        error.response = response;
+	        throw error;
+	    }
 	}
-
 	function addNote(note) {
-		return {
-			type: _types.P_SAVE_NOTE,
-			note: note
-		};
+	    return {
+	        type: _types.P_SAVE_NOTE,
+	        note: note
+	    };
 	}
-
 	function updateNote(data) {
-		return function (dispatch) {
-			return _axios2.default.put('https://projek-api.herokuapp.com/api/note/' + data.id, data).then(handleResponse).then(function (note) {
-				return dispatch(noteUpdated(note));
-			});
-		};
+	    return function (dispatch) {
+	        return _axios2.default.put('https://projek-api.herokuapp.com/api/note/' + data.id, data).then(handleResponse).then(function (note) {
+	            return dispatch(noteUpdated(note));
+	        });
+	    };
 	}
-
 	function noteUpdated(note) {
-		return {
-			type: _types.P_NOTE_UPDATED,
-			note: note
-		};
+	    return {
+	        type: _types.P_NOTE_UPDATED,
+	        note: note
+	    };
 	}
-
 	function fetchNote(id) {
-		return function (dispatch) {
-			return _axios2.default.get('https://projek-api.herokuapp.com/api/note/' + id).then(handleResponse).then(function (data) {
-				return dispatch(noteFetched(data));
-			});
-		};
+	    return function (dispatch) {
+	        return _axios2.default.get('https://projek-api.herokuapp.com/api/note/' + id).then(handleResponse).then(function (data) {
+	            return dispatch(noteFetched(data));
+	        });
+	    };
 	}
-
 	function noteFetched(note) {
-		return {
-			type: _types.P_NOTE_FETCHED,
-			note: note
-		};
+	    return {
+	        type: _types.P_NOTE_FETCHED,
+	        note: note
+	    };
 	}
-
 	function deleteNote(id) {
-		return function (dispatch) {
-			return _axios2.default.delete('https://projek-api.herokuapp.com/api/note/' + id).then(handleResponse).then(function (note) {
-				return dispatch(noteDeleted(note));
-			});
-		};
+	    return function (dispatch) {
+	        return _axios2.default.delete('https://projek-api.herokuapp.com/api/note/' + id).then(handleResponse).then(function (note) {
+	            return dispatch(noteDeleted(note));
+	        });
+	    };
 	}
-
 	function noteDeleted(note) {
-		return {
-			type: _types.P_NOTE_DELETED,
-			note: note
-		};
+	    return {
+	        type: _types.P_NOTE_DELETED,
+	        note: note
+	    };
 	}
 
 /***/ },
@@ -77895,7 +77854,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.default = validateNoteInput;
 
@@ -77910,26 +77869,28 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*jshint esversion: 6 */
-
 	function validateNoteInput(data) {
-	  var errors = {};
-
-	  if (_validator2.default.isEmpty(data.title)) {
-	    errors.title = 'This field is required';
-	  } else if (!_validator2.default.isLength(data.title, { min: 0, max: 50 })) {
-	    errors.title = 'Limit: 50 characters.';
-	  }
-
-	  if (_validator2.default.isEmpty(data.content)) {
-	    errors.content = 'This field is required';
-	  } else if (!_validator2.default.isLength(data.content, { min: 0, max: 1000 })) {
-	    errors.content = 'Limit: 1000 characters.';
-	  }
-
-	  return {
-	    errors: errors,
-	    isValid: (0, _isEmpty2.default)(errors)
-	  };
+	    var errors = {};
+	    if (_validator2.default.isEmpty(data.title)) {
+	        errors.title = 'This field is required';
+	    } else if (!_validator2.default.isLength(data.title, {
+	        min: 0,
+	        max: 50
+	    })) {
+	        errors.title = 'Limit: 50 characters.';
+	    }
+	    if (_validator2.default.isEmpty(data.content)) {
+	        errors.content = 'This field is required';
+	    } else if (!_validator2.default.isLength(data.content, {
+	        min: 0,
+	        max: 1000
+	    })) {
+	        errors.content = 'Limit: 1000 characters.';
+	    }
+	    return {
+	        errors: errors,
+	        isValid: (0, _isEmpty2.default)(errors)
+	    };
 	}
 
 /***/ },

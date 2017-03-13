@@ -1,21 +1,16 @@
 /*jshint esversion: 6 */
-
 import Validator from 'validator';
 import isEmpty from 'lodash/isEmpty';
-
 export default function validateLoginInput(data) {
-  let errors = {};
-
-  if (Validator.isEmpty(data.identifier)) {
-    errors.identifier = 'This field is required';
-  }
-
-  if (Validator.isEmpty(data.password)) {
-    errors.password = 'This field is required';
-  }
-
-  return {
-    errors,
-    isValid: isEmpty(errors)
-  };
+    let errors = {};
+    if (Validator.isEmpty(data.identifier)) {
+        errors.identifier = 'This field is required';
+    }
+    if (Validator.isEmpty(data.password)) {
+        errors.password = 'This field is required';
+    }
+    return {
+        errors,
+        isValid: isEmpty(errors)
+    };
 }
