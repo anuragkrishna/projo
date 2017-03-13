@@ -8,7 +8,6 @@ if (process.env.BROWSER) {
 }
 
 export default function ProjectList({projects, deleteProject}){
-		console.log(projects);
 	return (
 			<div id="artifactlist" className="container">
     			<div>

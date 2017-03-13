@@ -78,7 +78,6 @@ export function isProjectExists(identifier) {
     };
 }
 export function deleteProject(id) {
-    console.log("deleteProject")
     return (dispatch) => {
         return axios.delete(`https://projek-api.herokuapp.com/api/project/${id}`).then(handleResponse).then((project) => dispatch(projectDeleted(project)));
     };

@@ -15,9 +15,7 @@ class NoteCreateFormPage extends React.Component {
   }  
 
 	componentDidMount() {
-    console.log("Hello", this.props.params.id);
 		if (this.props.params.id) {
-         console.log(this.props.params.id);
       		this.props.fetchNote(this.props.params.id);
 		}
 	}

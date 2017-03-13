@@ -23,7 +23,6 @@ class NoteCreateForm extends React.Component {
   } 
 
   componentWillReceiveProps = (nextProps) => {
-    console.log("received", nextProps );
     this.setState({
       id: nextProps.note.id,
       title: nextProps.note.title,

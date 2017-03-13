@@ -7,7 +7,6 @@ if (process.env.BROWSER) {
   require('./style.css');
 }
 const ConfirmModal = ({showConfirmModal, closeConfirmModal,closeAndRemoveConfirmModal}) => {
-	console.log(showConfirmModal);
 	let showConfirmModal1=false;
 	return(
 

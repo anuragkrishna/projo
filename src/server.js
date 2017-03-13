@@ -70,9 +70,4 @@ const store = createStore(rootReducer, composeWithDevTools(
   );
 });
 
-server.listen(process.env.PORT || 8081, err => {
-  if (err) {
-    return console.error(err);
-  }
-  console.info(`Server running on`);
-});
+server.listen(process.env.PORT || 8081);
