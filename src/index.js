@@ -14,9 +14,6 @@ import setAuthorizationToken from './utils/setAuthorizationToken';
 import jwt_decode from 'jwt-decode';
 import {setCurrentUser} from './actions/authActions';
 
-import '../public/js/jquery-3.1.1.slim';
-import '../public/js/bootstrap.min.js';
-
 
 const store = createStore(rootReducer, composeWithDevTools(
 		applyMiddleware(thunk)

@@ -46,7 +46,6 @@ module.exports = {
 	plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        // This has effect on the react lib size
         'BROWSER': JSON.stringify(true),
         'NODE_ENV': JSON.stringify('production')
       }
@@ -58,7 +57,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compress: {
-        warnings: false, // Suppress uglification warnings
+        warnings: false,
         pure_getters: true,
         unsafe: true,
         unsafe_comps: true,
@@ -67,9 +66,9 @@ module.exports = {
       output: {
         comments: false,
       },
-      exclude: [/\.min\.js$/gi] // skip pre-minified libs
+      exclude: [/\.min\.js$/gi]
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]), //https://stackoverflow.com/questions/25384360/how-to-prevent-moment-js-from-loading-locales-with-webpack
+    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
     new CompressionPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
