@@ -143,7 +143,7 @@ class ProjectCreateForm extends React.Component {
                               {statusOptions}
                             </select>
                           </div>
-
+                               
                       <TextFieldGroup
                         label="Started On"
                         value={moment(this.state.started_on).format("YYYY-MM-DD")}

@@ -4,9 +4,10 @@ import React from 'react';
 import classnames from 'classnames';
 
 const TextFieldGroup = ({name, value, label, error, type, onChange, isItemExists}) => {
-		
+		const txtLabel = <label>{label}</label>;
 	return (
 			<div className={classnames("form-group", {'has-error':error})}>
+				{type==="date" ? txtLabel : ""}
 	            <input
 	              className="form-control input-lg"	
 	              value={value}
@@ -20,7 +21,8 @@ const TextFieldGroup = ({name, value, label, error, type, onChange, isItemExists
                        <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                        <span className="sr-only alert alert-danger">Error:</span>
                           {error}
-                    </div>}
+                    </div>
+                }
          	</div>
 		);
 }

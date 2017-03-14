@@ -14,7 +14,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools} from 'redux-devtools-extension';
 import {Provider} from 'react-redux';
 
-//delete process.env.BROWSER;
+delete process.env.BROWSER;
 
 // initialize the server and configure support for ejs templates
 const app = new Express();
@@ -23,6 +23,13 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // define the folder that will be used for static assets
+
+app.get('*bundle.js', function (req, res, next) {
+  req.url += '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 app.use(Express.static(path.join(__dirname, '../dist')));
 
 // universal routing and rendering

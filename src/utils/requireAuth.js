@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 import React from 'react';
 import {connect} from 'react-redux';
 
@@ -28,11 +30,11 @@ export default function(ComposedComponent) {
 	}
 
 
-	function mapAtateToProps(state){
+	function mapStateToProps(state){
 		return {
 			isAuthenticated: state.auth.isAuthenticated
 		}
 	}
 
-return connect(mapAtateToProps)(Authenticate);
+return connect(mapStateToProps)(Authenticate);
 }
