@@ -8,6 +8,7 @@ import map from 'lodash/map';
 import classnames from 'classnames';
 import validateProjectInput from '../../validations/project'; 
 import moment from 'moment';
+import DatePicker  from "react-bootstrap-date-picker"; 
 
 if (process.env.BROWSER) {
   require('./style.css');
@@ -27,7 +28,7 @@ class ProjectCreateForm extends React.Component {
       title:this.props.project ? this.props.project.title : '',
       donor:this.props.project ? this.props.project.donor : '',
       status:this.props.project ? this.props.project.status: '',
-      started_on:this.props.project ? this.props.project.started_on : '',
+      started_on:this.props.project ? this.props.project.started_on : new Date().toISOString(),
       errors:{},
       server_status:""
     }
@@ -54,6 +55,12 @@ class ProjectCreateForm extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
   }
+
+    handleDateChange = (value, formattedValue) => {
+      this.setState({
+        started_on:value
+      });
+    }
 
   checkProjectExists(e){
     const val = e.target.value;
@@ -143,15 +150,22 @@ class ProjectCreateForm extends React.Component {
                               {statusOptions}
                             </select>
                           </div>
-                               
-                      <TextFieldGroup
-                        label="Started On"
-                        value={moment(this.state.started_on).format("YYYY-MM-DD")}
-                        type="date"
-                        name="started_on"
-                        onChange={this.onChange}
-                        error={errors.started_on}
-                        />  
+                           
+
+                      <div className={classnames("form-group", {'has-error':errors.started_on})}>
+                        <label>Started On:</label>;
+                        <DatePicker 
+                          value={this.state.started_on}
+                          name="started_on"
+                          onChange={this.handleDateChange}
+                          />
+                          {errors.started_on && <div className="alert alert-danger" role="alert">
+                                 <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                 <span className="sr-only alert alert-danger">Error:</span>
+                                    {errors.started_on}
+                                  </div>
+                              }
+                        </div>     
 
                       <div className="field">
                         <button className="btn btn-primary">Save</button>
