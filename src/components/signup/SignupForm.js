@@ -62,7 +62,9 @@ class SignupForm extends React.Component {
     errors[name] = "";
     this.setState({ errors});
     this.setState({
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
+        isLoading:false,
+        invalid:false
     });
   }
 
@@ -88,7 +90,8 @@ class SignupForm extends React.Component {
            //browserHistory.push('/');  Method 1 for redirect
            this.context.router.push('/login'); //Method 2
         },
-          ({data}) => {this.setState({errors:data, isLoading:false})}
+          ({data}) => {
+            this.setState({errors:data.errors, isLoading:false})}
           );
     }    
   }
@@ -146,11 +149,11 @@ class SignupForm extends React.Component {
                     <TextFieldGroup
                       label="E-mail"
                       value={this.state.email}
-                      type="email"
+                      type="text"
                       name="email"
                       onChange={this.onChange}
                       error={errors.email}
-                      checkUserExists={this.checkUserExists}
+                      isItemExists={this.checkUserExists}
                       />
 
                      <TextFieldGroup
